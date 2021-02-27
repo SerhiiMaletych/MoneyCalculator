@@ -1,25 +1,39 @@
 package money.calculator.MoneyCalculator.entity;
 
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import money.calculator.MoneyCalculator.model.Sex;
 
 import javax.persistence.Entity;
 
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Data
 @Entity
 public class Deposit {
 
     @javax.persistence.Id
     private Long Id;
+    private String name;
+    private Sex sex;
+    private int age;
+    private double sum;
+    private boolean employed;
+    private boolean married;
+    private int salary;
+    private int period;
+    private double percents;
+    private double totalSum;
 
-    public Deposit(String name, double sum, int age, boolean employed, boolean married, int salary, int period, double percents, double totalSum) {
+    public Deposit() {
+
+    }
+
+
+    public Deposit(String name, Sex sex, int age, double sum, boolean employed, boolean married, int salary, int period, double percents, double totalSum) {
         this.name = name;
-        this.sum = sum;
+        this.sex = sex;
         this.age = age;
+        this.sum = sum;
         this.employed = employed;
         this.married = married;
         this.salary = salary;
@@ -28,13 +42,94 @@ public class Deposit {
         this.totalSum = totalSum;
     }
 
-    private String name;
-    private double sum;
-    private int age;
-    private boolean employed;
-    private boolean married;
-    private int salary;
-    private int period;
-    private double percents;
-    private double totalSum;
+
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(Long id) {
+        Id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Sex getSex() {
+        return sex;
+    }
+
+    public void setSex(Sex sex) {
+        this.sex = sex;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public double getSum() {
+        return sum;
+    }
+
+    public void setSum(double sum) {
+        this.sum = sum;
+    }
+
+    public boolean isEmployed() {
+        return employed;
+    }
+
+    public void setEmployed(boolean employed) {
+        this.employed = employed;
+    }
+
+    public boolean isMarried() {
+        return married;
+    }
+
+    public void setMarried(boolean married) {
+        this.married = married;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public int getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(int period) {
+        this.period = period;
+    }
+
+    public double getPercents() {
+        return percents;
+    }
+
+    public void setPercents(double percents) {
+        this.percents = percents;
+    }
+
+    public double getTotalSum() {
+        return totalSum;
+    }
+
+    public void setTotalSum(double totalSum) {
+        this.totalSum = totalSum;
+    }
+
+
 }
