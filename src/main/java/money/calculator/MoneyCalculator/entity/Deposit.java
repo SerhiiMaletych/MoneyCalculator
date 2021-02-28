@@ -119,8 +119,9 @@ public class Deposit {
         return percents;
     }
 
-    public void setPercents(double percents) {
+    public double setPercents(double percents) {
         this.percents = percents;
+        return percents;
     }
 
     public double getTotalSum() {
