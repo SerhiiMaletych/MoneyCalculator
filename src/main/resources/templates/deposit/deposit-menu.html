@@ -2,24 +2,26 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Deposit</title>
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 
 
-<div class="">
-    <form  action="#" th:action="@{deposit/}" th:object="${deposit}" method="POST">
+<div class="main-form">
+    <form  action="#" th:action="@{/deposit}" th:object="${deposit}" method="POST">
         <h2 class="h2-top">Please enter your numbers here:</h2>
 
         <input class="user-input"  type="text" pattern= "[0-9]+" th:field="*{sum}"/>
+
         <p class="buttons">
-            <input type="submit" class="button "  name="add" value="+"/>
+            <input type="submit" class=" "  name="calculate" value="DO IT"/>
 
 
         </p>
 
-        <p class="result resultText" th:text="'Result: '"></p>
-        <p  class="result" th:text=" ${calculate}"></p>
+        <p class=" " th:text="'Result: '"></p>
+        <p  class="" th:text=" ${result}"></p>
 
 
     </form>

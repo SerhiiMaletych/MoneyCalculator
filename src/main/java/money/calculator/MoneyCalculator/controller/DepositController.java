@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(value="deposit")
 public class DepositController {
     Deposit deposit = new Deposit();
     private final DepositService depositService;
@@ -17,15 +16,15 @@ public class DepositController {
     public DepositController(DepositService depositService) {
         this.depositService = depositService;
     }
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "/deposit")
     public String depositMenu(Model model) {
         model.addAttribute("deposit", deposit);
         return "deposit/deposit-menu";
     }
 
-    @PostMapping(value = "/", params = "add")
+    @PostMapping(value = "/deposit", params = "calculate")
     public String depositResult(@ModelAttribute("deposit") Deposit deposit, Model model) {
-        model.addAttribute("deposit", depositService.calculateDeposit(deposit));
+        model.addAttribute("result", depositService.calculateDeposit(deposit));
         return "deposit/deposit-menu";
     }
 
