@@ -17,11 +17,12 @@ public class DepositService {
 
     }
 
-    public void findPercents(Deposit deposit) {
-        if(deposit.getPeriod()<=3)  deposit.setPercents(0.05);
-        else if(deposit.getPeriod()<=6)   deposit.setPercents(0.07);
-        else if(deposit.getPeriod()<=9)  deposit.setPercents(0.085);
-        else if(deposit.getPeriod()>10)  deposit.setPercents(0.09);
+    public double findPercents(Deposit deposit) {
+        if(deposit.getPeriod()<=3) return  deposit.setPercents(0.05);
+        else if(deposit.getPeriod()<=6) return  deposit.setPercents(0.07);
+        else if(deposit.getPeriod()<=9) return deposit.setPercents(0.085);
+        else if(deposit.getPeriod()>=10) return deposit.setPercents(0.09);
 
+        return 0;
     }
 }

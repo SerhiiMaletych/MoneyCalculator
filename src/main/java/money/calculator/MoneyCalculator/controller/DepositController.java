@@ -24,6 +24,8 @@ public class DepositController {
 
     @PostMapping(value = "/deposit", params = "calculate")
     public String depositResult(@ModelAttribute("deposit") Deposit deposit, Model model) {
+        model.addAttribute("percentsBasedOnMonths", depositService.findPercents(deposit)*100);
+        model.addAttribute("percentsFromSum", depositService.calculatePercents(deposit));
         model.addAttribute("result", depositService.calculateDeposit(deposit));
         return "deposit/deposit-menu";
     }
