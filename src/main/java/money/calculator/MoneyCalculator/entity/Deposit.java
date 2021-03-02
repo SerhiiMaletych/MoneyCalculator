@@ -29,6 +29,8 @@ public class Deposit {
     }
 
 
+
+
     public Deposit(String name, Sex sex, int age, int sum, boolean employed, boolean married, int salary, int period, double percents, double totalSum) {
         this.name = name;
         this.sex = sex;

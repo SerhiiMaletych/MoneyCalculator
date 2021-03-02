@@ -30,5 +30,12 @@ public class DepositController {
         return "deposit/deposit-menu";
     }
 
+    @PostMapping(value = "/deposit", params = "clear")
+    public String clear(@ModelAttribute("deposit") Deposit deposit, Model model) {
+        model.addAttribute("deposit", depositService.clear(deposit));
+        model.addAttribute("result", 0);
+        return "deposit/deposit-menu";
+    }
+
 
 }
