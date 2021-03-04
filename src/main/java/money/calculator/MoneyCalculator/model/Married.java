@@ -1,5 +1,5 @@
 package money.calculator.MoneyCalculator.model;
 
-public enum Sex {
-    MALE, FEMALE, NONE
+public enum Married {
+    YES, NO
 }

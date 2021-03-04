@@ -2,6 +2,8 @@ package money.calculator.MoneyCalculator.entity;
 
 
 import lombok.Data;
+import money.calculator.MoneyCalculator.model.Employed;
+import money.calculator.MoneyCalculator.model.Married;
 import money.calculator.MoneyCalculator.model.Sex;
 
 import javax.persistence.Entity;
@@ -17,9 +19,8 @@ public class Deposit {
     private Sex sex;
     private int age;
     private int sum;
-    private boolean employed;
-    private boolean married;
-    private int salary;
+    private Employed employed;
+    private Married married;
     private int period;
     private double percents;
     private double totalSum;
@@ -29,16 +30,13 @@ public class Deposit {
     }
 
 
-
-
-    public Deposit(String name, Sex sex, int age, int sum, boolean employed, boolean married, int salary, int period, double percents, double totalSum) {
+    public Deposit(String name, Sex sex, int age, int sum, Employed employed,  int period, double percents, double totalSum) {
         this.name = name;
         this.sex = sex;
         this.age = age;
         this.sum = sum;
         this.employed = employed;
         this.married = married;
-        this.salary = salary;
         this.period = period;
         this.percents = percents;
         this.totalSum = totalSum;
@@ -85,29 +83,22 @@ public class Deposit {
         this.sum = sum;
     }
 
-    public boolean isEmployed() {
+    public Employed isEmployed() {
         return employed;
     }
 
-    public void setEmployed(boolean employed) {
+    public void setEmployed(Employed employed) {
         this.employed = employed;
     }
 
-    public boolean isMarried() {
+    public Married isMarried() {
         return married;
     }
 
-    public void setMarried(boolean married) {
+    public void setMarried(Married married) {
         this.married = married;
     }
 
-    public int getSalary() {
-        return salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
 
     public int getPeriod() {
         return period;
