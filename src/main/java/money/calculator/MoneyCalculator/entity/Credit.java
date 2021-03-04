@@ -1,9 +1,7 @@
 package money.calculator.MoneyCalculator.entity;
 
 import lombok.Data;
-import money.calculator.MoneyCalculator.model.Conviction;
-import money.calculator.MoneyCalculator.model.Employed;
-import money.calculator.MoneyCalculator.model.Sex;
+import money.calculator.MoneyCalculator.model.*;
 
 import javax.persistence.Entity;
 
@@ -12,36 +10,43 @@ import javax.persistence.Entity;
 @Entity
 public class Credit {
 
+
     @javax.persistence.Id
     private Long Id;
     private String name;
     private Sex sex;
-    private int age;
-    private double sum;
     private Employed employed;
     private Conviction conviction;
+    private Married married;
+    private int age;
+    private double sum;
     private int salary;
     private int period;
-    private boolean result;
+    private CreditResult creditResult;
+    private double percents;
     private double credit;
 
     public Credit() {
 
     }
 
-    public Credit(String name, Sex sex, int age, double sum, Employed employed, Conviction conviction, int salary, int period, boolean result, double credit) {
+
+    public Credit(String name, Sex sex, Employed employed, Conviction conviction,
+                  Married married, int age, double sum, int salary, int period,
+                  CreditResult creditResult, double percents, double credit) {
         this.name = name;
         this.sex = sex;
-        this.age = age;
-        this.sum = sum;
         this.employed = employed;
         this.conviction = conviction;
+        this.married = married;
+        this.age = age;
+        this.sum = sum;
         this.salary = salary;
         this.period = period;
-        this.result = result;
+        this.creditResult = creditResult;
+        this.percents = percents;
         this.credit = credit;
     }
-
 
     public Long getId() {
         return Id;
@@ -67,22 +72,6 @@ public class Credit {
         this.sex = sex;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public double getSum() {
-        return sum;
-    }
-
-    public void setSum(double sum) {
-        this.sum = sum;
-    }
-
     public Employed getEmployed() {
         return employed;
     }
@@ -97,6 +86,30 @@ public class Credit {
 
     public void setConviction(Conviction conviction) {
         this.conviction = conviction;
+    }
+
+    public Married getMarried() {
+        return married;
+    }
+
+    public void setMarried(Married married) {
+        this.married = married;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public double getSum() {
+        return sum;
+    }
+
+    public void setSum(double sum) {
+        this.sum = sum;
     }
 
     public int getSalary() {
@@ -115,12 +128,21 @@ public class Credit {
         this.period = period;
     }
 
-    public boolean isResult() {
-        return result;
+    public CreditResult getCreditResult() {
+        return creditResult;
     }
 
-    public void setResult(boolean result) {
-        this.result = result;
+    public void setCreditResult(CreditResult creditResult) {
+        this.creditResult = creditResult;
+    }
+
+
+    public double getPercents() {
+        return percents;
+    }
+
+    public void setPercents(double percents) {
+        this.percents = percents;
     }
 
     public double getCredit() {
