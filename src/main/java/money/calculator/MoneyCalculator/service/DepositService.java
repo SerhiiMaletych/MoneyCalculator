@@ -29,8 +29,8 @@ public class DepositService {
     }
 
     public Deposit clear(Deposit deposit) {
-    deposit.setSum(0);
-    deposit.setPeriod(0);
-    return deposit;
+        deposit.setSum(0);
+        deposit.setPeriod(0);
+        return deposit;
     }
 }
