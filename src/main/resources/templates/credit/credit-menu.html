@@ -1,10 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Credit</title>
 </head>
 <body>
+
+
+<div class="">
+    <form  action="#" th:action="@{/credit}" th:object="${credit}" method="POST">
+        <h2 class="">Please fill all the fields below:</h2>
+
+        <label>Name</label>
+        <input class=""  type="text" th:field="*{name}" required/>
+
+        <label>Sex</label>
+        <select th:field="*{sex}" class="">
+            <option th:value="'MALE'" th:text="MALE"></option>
+            <option th:value="'FEMALE'" th:text="FEMALE"></option>
+            <option th:value="'NONE'" th:text="NONE"></option>
+
+        </select>
+
+        <label>Employed</label>
+
+        <select th:field="*{employed}" class="">
+            <option th:value="'YES'" th:text="YES"></option>
+            <option th:value="'NO'" th:text="NO"></option>
+
+        </select>
+
+        <label>Conviction</label>
+
+        <select th:field="*{conviction}" class="input expired">
+            <option th:value="'YES'" th:text="YES"></option>
+            <option th:value="'NO'" th:text="NO"></option>
+
+
+        </select>
+
+        <label>Married</label>
+        <select th:field="*{married}" class="input expired">
+            <option th:value="'YES'" th:text="YES"></option>
+            <option th:value="'NO'" th:text="NO"></option>
+
+        </select>
+
+        <label>Age</label>
+        <input class="" pattern= "[0-9]+" type="text" th:field="*{age}" required/>
+        <label>Sum</label>
+        <input class="" pattern= "[0-9]+" type="text" th:field="*{sum}" required/>
+        <label>Salary</label>
+        <input class="" pattern= "[0-9]+" type="text" th:field="*{salary}" required/>
+        <label>Period</label>
+        <input class="" pattern= "[0-9]+" type="text" th:field="*{period}" required/>
+
+
+
+
+    </form>
+</div>
 
 </body>
 </html>
