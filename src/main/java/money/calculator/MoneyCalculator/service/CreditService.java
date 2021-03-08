@@ -10,14 +10,25 @@ public class CreditService {
     public void findCreditSum(Credit credit) {
         findCreditResult(credit);
         if (credit.getCreditResult() == CreditResult.APPROVE) {
-
+            checkConviction(credit);
         }
     }
 
-    public void findCreditResult(Credit credit) {
+    public boolean findCreditResult(Credit credit) {
         var division = credit.getSum() / credit.getSalary();
         checkCredentials(credit);
         checkSalary(credit);
+        if (division < 10) {
+            return credit.getCreditResult() == CreditResult.APPROVE;
+        }
+        return false;
+    }
+
+
+    public void checkSalary(Credit credit) {
+        if (credit.getSalary() < 3000) {
+            credit.setCreditResult(CreditResult.REJECT);
+        }
     }
 
     public void checkCredentials(Credit credit) {
@@ -27,10 +38,18 @@ public class CreditService {
         }
     }
 
+
     public void checkConviction(Credit credit) {
         if (credit.getConviction() == Conviction.NO) {
             credit.setPercents(credit.getPercents() - 1);
         }
+    }
+
+
+    public double calculatePercents(Credit credit) {
+        findPercents(credit);
+        return credit.getSum() * credit.getPercents() * credit.getPeriod() / 12;
+
     }
 
     public void findPercents(Credit credit) {
@@ -44,13 +63,6 @@ public class CreditService {
         } else if (credit.getSum() / credit.getSalary() < 3 && credit.getPeriod() <= 6) {
             credit.setPercents(9);
         } else credit.setPercents(13);
-    }
-
-
-    public void checkSalary(Credit credit) {
-        if (credit.getSalary() < 3000) {
-            credit.setCreditResult(CreditResult.REJECT);
-        }
     }
 
 

@@ -19,7 +19,7 @@ public class Credit {
     private Conviction conviction;
     private Married married;
     private int age;
-    private double sum;
+    private int sum;
     private int salary;
     private int period;
     private CreditResult creditResult;
@@ -32,7 +32,7 @@ public class Credit {
 
 
     public Credit(String name, Sex sex, Employed employed, Conviction conviction,
-                  Married married, int age, double sum, int salary, int period,
+                  Married married, int age, int sum, int salary, int period,
                   CreditResult creditResult, double percents, double credit) {
         this.name = name;
         this.sex = sex;
@@ -104,11 +104,11 @@ public class Credit {
         this.age = age;
     }
 
-    public double getSum() {
+    public int getSum() {
         return sum;
     }
 
-    public void setSum(double sum) {
+    public void setSum(int sum) {
         this.sum = sum;
     }
 

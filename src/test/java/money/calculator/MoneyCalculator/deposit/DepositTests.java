@@ -14,6 +14,8 @@ public class DepositTests {
     @Autowired
     DepositService depositService;
 
+
+
     @Test
     public void testClear() {
         Deposit deposit = new Deposit();
@@ -32,4 +34,6 @@ public class DepositTests {
         depositService.findPercents(deposit);
         assertEquals(deposit.getPercents(),0.05);
     }
+
+
 }

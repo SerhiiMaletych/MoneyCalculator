@@ -25,6 +25,17 @@ public class CreditController {
     }
 
 
+    public String creditResult(Model model) {
+        model.addAttribute("result", creditService.findCreditResult(credit));
+        return  "credit/credit-menu";
+    }
+
+//    public String creditSum(Model model) {
+//        model.addAttribute("sum", creditService.findCreditSum(credit));
+//        return "credit/credit-menu";
+//    }
+
+
     @PostMapping(value = "/credit", params = "clear")
     public String clear(@ModelAttribute("deposit") Credit credit, Model model) {
         model.addAttribute("credit", creditService.clear(credit));
