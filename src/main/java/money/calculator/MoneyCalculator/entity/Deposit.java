@@ -1,6 +1,8 @@
 package money.calculator.MoneyCalculator.entity;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import money.calculator.MoneyCalculator.model.Employed;
 import money.calculator.MoneyCalculator.model.Married;
@@ -8,7 +10,7 @@ import money.calculator.MoneyCalculator.model.Sex;
 
 import javax.persistence.Entity;
 
-
+@AllArgsConstructor
 @Data
 @Entity
 public class Deposit {
@@ -42,6 +44,12 @@ public class Deposit {
         this.totalSum = totalSum;
     }
 
+
+
+    public Deposit(int sum, int period) {
+        this.sum = sum;
+        this.period=period;
+    }
 
     public Long getId() {
         return Id;
