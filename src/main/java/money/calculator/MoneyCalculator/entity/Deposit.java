@@ -2,7 +2,6 @@ package money.calculator.MoneyCalculator.entity;
 
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import money.calculator.MoneyCalculator.model.Employed;
 import money.calculator.MoneyCalculator.model.Married;
@@ -32,7 +31,7 @@ public class Deposit {
     }
 
 
-    public Deposit(String name, Sex sex, int age, int sum, Employed employed,  int period, double percents, double totalSum) {
+    public Deposit(String name, Sex sex, int age, int sum, Employed employed, int period, double percents, double totalSum, Married married) {
         this.name = name;
         this.sex = sex;
         this.age = age;
@@ -44,12 +43,6 @@ public class Deposit {
         this.totalSum = totalSum;
     }
 
-
-
-    public Deposit(int sum, int period) {
-        this.sum = sum;
-        this.period=period;
-    }
 
     public Long getId() {
         return Id;

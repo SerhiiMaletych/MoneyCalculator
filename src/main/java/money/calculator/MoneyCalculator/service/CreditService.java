@@ -29,6 +29,7 @@ public class CreditService {
         if (credit.getSalary() < 3000) {
             credit.setCreditResult(CreditResult.REJECT);
         }
+        else  credit.setCreditResult(CreditResult.APPROVE);
     }
 
     public void checkCredentials(Credit credit) {
@@ -41,7 +42,7 @@ public class CreditService {
 
     public void checkConviction(Credit credit) {
         if (credit.getConviction() == Conviction.NO) {
-            credit.setPercents(credit.getPercents() - 1);
+            credit.setPercents(credit.getPercents() + 1);
         }
     }
 

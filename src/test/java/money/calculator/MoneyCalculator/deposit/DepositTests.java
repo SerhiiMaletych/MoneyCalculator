@@ -17,7 +17,9 @@ public class DepositTests {
 
     @Test
     public void testClear() {
-        Deposit deposit = new Deposit(10, 10);
+        Deposit deposit = new Deposit();
+        deposit.setSum(10);
+        deposit.setPeriod(10);
         depositService.clear(deposit);
         assertEquals(0, deposit.getSum());
         assertEquals(0, deposit.getPeriod());
