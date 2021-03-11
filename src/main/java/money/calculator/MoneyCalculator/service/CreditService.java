@@ -2,6 +2,8 @@ package money.calculator.MoneyCalculator.service;
 
 import money.calculator.MoneyCalculator.entity.Credit;
 import money.calculator.MoneyCalculator.model.*;
+import money.calculator.MoneyCalculator.model.credit.Conviction;
+import money.calculator.MoneyCalculator.model.credit.CreditResult;
 import org.springframework.stereotype.Service;
 
 @Service

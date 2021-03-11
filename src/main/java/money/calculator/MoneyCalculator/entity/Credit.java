@@ -2,6 +2,8 @@ package money.calculator.MoneyCalculator.entity;
 
 import lombok.Data;
 import money.calculator.MoneyCalculator.model.*;
+import money.calculator.MoneyCalculator.model.credit.Conviction;
+import money.calculator.MoneyCalculator.model.credit.CreditResult;
 
 import javax.persistence.Entity;
 
@@ -26,9 +28,6 @@ public class Credit {
     private double percents;
     private double credit;
 
-    public Credit() {
-
-    }
 
 
     public Credit(String name, Sex sex, Employed employed, Conviction conviction,
@@ -48,110 +47,6 @@ public class Credit {
         this.credit = credit;
     }
 
-    public Long getId() {
-        return Id;
-    }
-
-    public void setId(Long id) {
-        Id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Sex getSex() {
-        return sex;
-    }
-
-    public void setSex(Sex sex) {
-        this.sex = sex;
-    }
-
-    public Employed getEmployed() {
-        return employed;
-    }
-
-    public void setEmployed(Employed employed) {
-        this.employed = employed;
-    }
-
-    public Conviction getConviction() {
-        return conviction;
-    }
-
-    public void setConviction(Conviction conviction) {
-        this.conviction = conviction;
-    }
-
-    public Married getMarried() {
-        return married;
-    }
-
-    public void setMarried(Married married) {
-        this.married = married;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public int getSum() {
-        return sum;
-    }
-
-    public void setSum(int sum) {
-        this.sum = sum;
-    }
-
-    public int getSalary() {
-        return salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
-
-    public int getPeriod() {
-        return period;
-    }
-
-    public void setPeriod(int period) {
-        this.period = period;
-    }
-
-    public CreditResult getCreditResult() {
-        return creditResult;
-    }
-
-    public void setCreditResult(CreditResult creditResult) {
-        this.creditResult = creditResult;
-    }
-
-
-    public double getPercents() {
-        return percents;
-    }
-
-    public void setPercents(double percents) {
-        this.percents = percents;
-    }
-
-    public double getCredit() {
-        return credit;
-    }
-
-    public void setCredit(double credit) {
-        this.credit = credit;
-    }
 
 
 }

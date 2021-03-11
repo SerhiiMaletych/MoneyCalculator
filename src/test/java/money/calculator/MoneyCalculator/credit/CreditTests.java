@@ -2,6 +2,8 @@ package money.calculator.MoneyCalculator.credit;
 
 import money.calculator.MoneyCalculator.entity.Credit;
 import money.calculator.MoneyCalculator.model.*;
+import money.calculator.MoneyCalculator.model.credit.Conviction;
+import money.calculator.MoneyCalculator.model.credit.CreditResult;
 import money.calculator.MoneyCalculator.service.CreditService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
