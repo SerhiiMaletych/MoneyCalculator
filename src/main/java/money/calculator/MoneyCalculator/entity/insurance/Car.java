@@ -16,6 +16,14 @@ public class Car {
 
     @javax.persistence.Id
     private Long Id;
+    private String name;
+    private int age;
+    private CarModel carModel;
+    private double carEngine;
+    private int yearOfProduction;
+    private byte driverExperience;
+    private boolean isTaxi;
+    private int insurancePayment;
 
     public Car(String name, int age, CarModel carModel, double carEngine, int yearOfProduction, byte driverExperience, boolean isTaxi, int insurancePayment) {
         this.name = name;
@@ -27,14 +35,5 @@ public class Car {
         this.isTaxi = isTaxi;
         this.insurancePayment = insurancePayment;
     }
-
-    private String name;
-    private int age;
-    private CarModel carModel;
-    private double carEngine;
-    private int yearOfProduction;
-    private byte driverExperience;
-    private boolean isTaxi;
-    private int insurancePayment;
 
 }
