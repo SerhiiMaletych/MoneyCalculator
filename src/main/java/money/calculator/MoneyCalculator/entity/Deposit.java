@@ -25,6 +25,8 @@ public class Deposit {
     private Employed employed;
     private Married married;
     private int period;
+
+
     private double percents;
     private double totalSum;
 
@@ -42,6 +44,12 @@ public class Deposit {
         this.percents = percents;
         this.totalSum = totalSum;
     }
+
+    public double setPercents(double percents) {
+        this.percents = percents;
+        return percents;
+    }
+
 
 
 

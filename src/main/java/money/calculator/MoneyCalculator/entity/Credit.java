@@ -1,15 +1,19 @@
 package money.calculator.MoneyCalculator.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import money.calculator.MoneyCalculator.model.*;
 import money.calculator.MoneyCalculator.model.credit.Conviction;
-import money.calculator.MoneyCalculator.model.credit.CreditResult;
+import money.calculator.MoneyCalculator.model.Result;
 
 import javax.persistence.Entity;
 
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Credit {
 
 
@@ -24,7 +28,7 @@ public class Credit {
     private int sum;
     private int salary;
     private int period;
-    private CreditResult creditResult;
+    private Result result;
     private double percents;
     private double credit;
 
@@ -32,7 +36,7 @@ public class Credit {
 
     public Credit(String name, Sex sex, Employed employed, Conviction conviction,
                   Married married, int age, int sum, int salary, int period,
-                  CreditResult creditResult, double percents, double credit) {
+                  Result result, double percents, double credit) {
         this.name = name;
         this.sex = sex;
         this.employed = employed;
@@ -42,7 +46,7 @@ public class Credit {
         this.sum = sum;
         this.salary = salary;
         this.period = period;
-        this.creditResult = creditResult;
+        this.result = result;
         this.percents = percents;
         this.credit = credit;
     }

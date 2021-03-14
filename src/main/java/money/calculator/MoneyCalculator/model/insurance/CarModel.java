@@ -1,4 +1,7 @@
 package money.calculator.MoneyCalculator.model.insurance;
 
 public enum CarModel {
+    AUDI, FIAT, FERRARI, DAEWOO, SUBARU, MERCEDES, BMW, SUZUKI, FORD,
+    MITSUBISHI, KIA, MAZDA, NISSAN, OPEL, PORSHE, RENAULT, TESLA, TOYOTA,
+    VOLKSWAGEN, VOLVO, ZAZ_ZAPOROZHEC, CHEVROLET, HYUNDAI, DODGE
 }

@@ -3,7 +3,7 @@ package money.calculator.MoneyCalculator.service;
 import money.calculator.MoneyCalculator.entity.Credit;
 import money.calculator.MoneyCalculator.model.*;
 import money.calculator.MoneyCalculator.model.credit.Conviction;
-import money.calculator.MoneyCalculator.model.credit.CreditResult;
+import money.calculator.MoneyCalculator.model.Result;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,7 +11,7 @@ public class CreditService {
 
     public void findCreditSum(Credit credit) {
         findCreditResult(credit);
-        if (credit.getCreditResult() == CreditResult.APPROVE) {
+        if (credit.getResult() == Result.APPROVE) {
             checkConviction(credit);
         }
     }
@@ -21,7 +21,7 @@ public class CreditService {
         checkCredentials(credit);
         checkSalary(credit);
         if (division < 10) {
-            return credit.getCreditResult() == CreditResult.APPROVE;
+            return credit.getResult() == Result.APPROVE;
         }
         return false;
     }
@@ -29,15 +29,15 @@ public class CreditService {
 
     public void checkSalary(Credit credit) {
         if (credit.getSalary() < 3000) {
-            credit.setCreditResult(CreditResult.REJECT);
+            credit.setResult(Result.REJECT);
         }
-        else  credit.setCreditResult(CreditResult.APPROVE);
+        else  credit.setResult(Result.APPROVE);
     }
 
     public void checkCredentials(Credit credit) {
         if (credit.getName().isEmpty() || credit.getAge() < 18 || credit.getAge() > 90 ||
                 credit.getSalary() < 100 || credit.getEmployed() == Employed.NO) {
-            credit.setCreditResult(CreditResult.REJECT);
+            credit.setResult(Result.REJECT);
         }
     }
 

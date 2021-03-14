@@ -3,7 +3,7 @@ package money.calculator.MoneyCalculator.credit;
 import money.calculator.MoneyCalculator.entity.Credit;
 import money.calculator.MoneyCalculator.model.*;
 import money.calculator.MoneyCalculator.model.credit.Conviction;
-import money.calculator.MoneyCalculator.model.credit.CreditResult;
+import money.calculator.MoneyCalculator.model.Result;
 import money.calculator.MoneyCalculator.service.CreditService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,8 +63,8 @@ public class CreditTests {
         credit1.setSalary(1000);
         creditService.checkSalary(credit);
         creditService.checkSalary(credit1);
-        assertEquals(CreditResult.APPROVE, credit.getCreditResult());
-        assertEquals(CreditResult.REJECT, credit1.getCreditResult());
+        assertEquals(Result.APPROVE, credit.getResult());
+        assertEquals(Result.REJECT, credit1.getResult());
 
     }
 

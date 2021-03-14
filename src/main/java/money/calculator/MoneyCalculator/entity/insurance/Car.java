@@ -4,6 +4,7 @@ package money.calculator.MoneyCalculator.entity.insurance;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import money.calculator.MoneyCalculator.model.Result;
 import money.calculator.MoneyCalculator.model.insurance.CarModel;
 
 import javax.persistence.Entity;
@@ -23,9 +24,10 @@ public class Car {
     private int yearOfProduction;
     private byte driverExperience;
     private boolean isTaxi;
+    private Result result;
     private int insurancePayment;
 
-    public Car(String name, int age, CarModel carModel, double carEngine, int yearOfProduction, byte driverExperience, boolean isTaxi, int insurancePayment) {
+    public Car(String name, int age, CarModel carModel, double carEngine, int yearOfProduction, byte driverExperience, boolean isTaxi, Result result, int insurancePayment) {
         this.name = name;
         this.age = age;
         this.carModel = carModel;
@@ -33,6 +35,7 @@ public class Car {
         this.yearOfProduction = yearOfProduction;
         this.driverExperience = driverExperience;
         this.isTaxi = isTaxi;
+        this.result = result;
         this.insurancePayment = insurancePayment;
     }
 
