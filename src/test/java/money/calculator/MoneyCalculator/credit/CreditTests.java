@@ -18,7 +18,7 @@ public class CreditTests {
     CreditService creditService;
 
     @Test
-    public void testCLearCredit() {
+    public void testCLearButton() {
         Credit credit = new Credit();
         credit.setName("Name");
         credit.setSum(100);

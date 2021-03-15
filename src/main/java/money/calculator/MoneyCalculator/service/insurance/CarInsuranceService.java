@@ -1,12 +1,7 @@
 package money.calculator.MoneyCalculator.service.insurance;
 
-import money.calculator.MoneyCalculator.entity.Credit;
 import money.calculator.MoneyCalculator.entity.insurance.Car;
-import money.calculator.MoneyCalculator.model.Employed;
-import money.calculator.MoneyCalculator.model.Married;
 import money.calculator.MoneyCalculator.model.Result;
-import money.calculator.MoneyCalculator.model.Sex;
-import money.calculator.MoneyCalculator.model.credit.Conviction;
 import money.calculator.MoneyCalculator.model.insurance.CarModel;
 import org.springframework.stereotype.Service;
 
@@ -16,15 +11,30 @@ public class CarInsuranceService {
     private double carEngineMultiplier;
     private double carModelMultiplier;
     private double yearOfProductionMultiplier;
-    private final double basePayment = 100;
+    private double taxiMultiplier;
 
 
-    public double calculateInsurancePayment(Car car) {
+    public double doInsuranceResult(Car car) {
         checkCredentials(car);
         if (car.getResult() == Result.APPROVE) {
+            return calculateInsurancePayment();
+
+        } return 0;
+    }
+
+
+    public double calculateInsurancePayment() {
+
+            double basePayment = 100;
             return basePayment * driverExperienceMultiplier * carModelMultiplier * carEngineMultiplier *
-                    yearOfProductionMultiplier;
-        } else return 0;
+                    yearOfProductionMultiplier * taxiMultiplier;
+
+    }
+
+    public double checkForTaxi(Car car) {
+        if (car.isTaxi()) {
+            return taxiMultiplier = 1.5;
+        } else return taxiMultiplier = 1;
     }
 
 
@@ -33,20 +43,17 @@ public class CarInsuranceService {
                 car.getCarModel() == CarModel.FERRARI || car.getCarModel() == CarModel.PORSHE ||
                 car.getCarModel() == CarModel.TESLA || car.getCarModel() == CarModel.MERCEDES) {
             return carModelMultiplier = 1.3;
-        }
-        else if (car.getCarModel() == CarModel.ZAZ_ZAPOROZHEC) {
+        } else if (car.getCarModel() == CarModel.ZAZ_ZAPOROZHEC) {
             return carModelMultiplier = 2;
 
-        }
-        else if(car.getCarModel()==CarModel.NONE) {
+        } else if (car.getCarModel() == CarModel.NONE) {
             System.out.println("Please select some car model from the list!");
             return carModelMultiplier = 0;
 
-        }
-        else return carModelMultiplier = 1;
+        } else return carModelMultiplier = 1;
     }
 
-    public double calculateDriverExperienceMultiplier(Car car) throws Exception {
+    public double calculateDriverExperienceMultiplier(Car car) {
         if (car.getDriverExperience() < 1) {
             return driverExperienceMultiplier = 2;
         } else if (car.getDriverExperience() >= 1 && car.getDriverExperience() < 3) {
@@ -55,10 +62,11 @@ public class CarInsuranceService {
             return driverExperienceMultiplier = 1.4;
         } else if (car.getDriverExperience() >= 5) {
             return driverExperienceMultiplier = 1;
-        } else throw new Exception("Wrong driver experience!");
+        }
+        return 0;
     }
 
-    public double calculateCarEngineMultiplier(Car car) throws Exception {
+    public double calculateCarEngineMultiplier(Car car) {
         if (car.getCarEngine() < 1) {
             return carEngineMultiplier = 1;
         } else if (car.getCarEngine() >= 1 && car.getCarEngine() < 1.5) {
@@ -71,10 +79,11 @@ public class CarInsuranceService {
             return carEngineMultiplier = 1.8;
         } else if (car.getCarEngine() >= 3) {
             return carEngineMultiplier = 2;
-        } else throw new Exception("Wrong car engine!");
+        }
+        return 0;
     }
 
-    public double calculateYearOfProductionMultiplier(Car car) throws Exception {
+    public double calculateYearOfProductionMultiplier(Car car) {
         if (car.getYearOfProduction() > 1970 && car.getYearOfProduction() <= 1980) {
             return yearOfProductionMultiplier = 2;
         } else if (car.getYearOfProduction() > 1980 && car.getYearOfProduction() <= 1990) {
@@ -87,7 +96,8 @@ public class CarInsuranceService {
             return yearOfProductionMultiplier = 1.2;
         } else if (car.getYearOfProduction() > 2020) {
             return yearOfProductionMultiplier = 1;
-        } else throw new Exception("Wrong year!");
+        }
+        return 0;
     }
 
     public void checkCredentials(Car car) {
@@ -97,8 +107,9 @@ public class CarInsuranceService {
             car.setResult(Result.REJECT);
         }
     }
+
     public Car clear(Car car) {
-        car.setName("0");
+        car.setName("");
         car.setAge(0);
         car.setCarModel(CarModel.NONE);
         car.setCarEngine(0);

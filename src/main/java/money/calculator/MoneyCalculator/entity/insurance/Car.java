@@ -15,6 +15,7 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 public class Car {
 
+
     @javax.persistence.Id
     private Long Id;
     private String name;
@@ -26,6 +27,17 @@ public class Car {
     private boolean isTaxi;
     private Result result;
     private int insurancePayment;
+
+    public Car(Long id, String name, int age, CarModel carModel, double carEngine, int yearOfProduction, int driverExperience, boolean isTaxi) {
+        Id = id;
+        this.name = name;
+        this.age = age;
+        this.carModel = carModel;
+        this.carEngine = carEngine;
+        this.yearOfProduction = yearOfProduction;
+        this.driverExperience = driverExperience;
+        this.isTaxi = isTaxi;
+    }
 
     public Car(String name, int age, CarModel carModel, double carEngine, int yearOfProduction, int driverExperience, boolean isTaxi, Result result, int insurancePayment) {
         this.name = name;
