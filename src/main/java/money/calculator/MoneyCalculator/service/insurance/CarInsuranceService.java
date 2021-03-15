@@ -1,7 +1,12 @@
 package money.calculator.MoneyCalculator.service.insurance;
 
+import money.calculator.MoneyCalculator.entity.Credit;
 import money.calculator.MoneyCalculator.entity.insurance.Car;
+import money.calculator.MoneyCalculator.model.Employed;
+import money.calculator.MoneyCalculator.model.Married;
 import money.calculator.MoneyCalculator.model.Result;
+import money.calculator.MoneyCalculator.model.Sex;
+import money.calculator.MoneyCalculator.model.credit.Conviction;
 import money.calculator.MoneyCalculator.model.insurance.CarModel;
 import org.springframework.stereotype.Service;
 
@@ -29,9 +34,16 @@ public class CarInsuranceService {
                 car.getCarModel() == CarModel.TESLA || car.getCarModel() == CarModel.MERCEDES) {
             return carModelMultiplier = 1.3;
         }
-        if (car.getCarModel() == CarModel.ZAZ_ZAPOROZHEC) {
+        else if (car.getCarModel() == CarModel.ZAZ_ZAPOROZHEC) {
             return carModelMultiplier = 2;
-        } else return carModelMultiplier = 1;
+
+        }
+        else if(car.getCarModel()==CarModel.NONE) {
+            System.out.println("Please select some car model from the list!");
+            return carModelMultiplier = 0;
+
+        }
+        else return carModelMultiplier = 1;
     }
 
     public double calculateDriverExperienceMultiplier(Car car) throws Exception {
@@ -85,4 +97,15 @@ public class CarInsuranceService {
             car.setResult(Result.REJECT);
         }
     }
+    public Car clear(Car car) {
+        car.setName("0");
+        car.setAge(0);
+        car.setCarModel(CarModel.NONE);
+        car.setCarEngine(0);
+        car.setYearOfProduction(1971);
+        car.setDriverExperience(0);
+        car.setTaxi(false);
+        return car;
+    }
+
 }

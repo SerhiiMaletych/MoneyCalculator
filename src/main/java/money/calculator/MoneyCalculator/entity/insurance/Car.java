@@ -22,12 +22,12 @@ public class Car {
     private CarModel carModel;
     private double carEngine;
     private int yearOfProduction;
-    private byte driverExperience;
+    private int driverExperience;
     private boolean isTaxi;
     private Result result;
     private int insurancePayment;
 
-    public Car(String name, int age, CarModel carModel, double carEngine, int yearOfProduction, byte driverExperience, boolean isTaxi, Result result, int insurancePayment) {
+    public Car(String name, int age, CarModel carModel, double carEngine, int yearOfProduction, int driverExperience, boolean isTaxi, Result result, int insurancePayment) {
         this.name = name;
         this.age = age;
         this.carModel = carModel;
