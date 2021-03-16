@@ -4,6 +4,7 @@ import money.calculator.MoneyCalculator.entity.Deposit;
 import money.calculator.MoneyCalculator.service.DepositService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +24,7 @@ public class DepositController {
     }
 
     @PostMapping(value = "/deposit", params = "calculate")
-    public String depositResult(@ModelAttribute("deposit") Deposit deposit, Model model) {
+    public String depositResult(@ModelAttribute("deposit") Deposit deposit, Model model, BindingResult bindingResult) {
         model.addAttribute("percentsBasedOnMonths", depositService.findPercents(deposit)*100);
         model.addAttribute("percentsFromSum", depositService.calculatePercents(deposit));
         model.addAttribute("result", depositService.calculateDeposit(deposit));

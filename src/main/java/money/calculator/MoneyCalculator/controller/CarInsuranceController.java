@@ -1,6 +1,5 @@
 package money.calculator.MoneyCalculator.controller;
 
-import money.calculator.MoneyCalculator.entity.Deposit;
 import money.calculator.MoneyCalculator.entity.insurance.Car;
 import money.calculator.MoneyCalculator.service.insurance.CarInsuranceService;
 import org.springframework.stereotype.Controller;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/insurance")
 public class CarInsuranceController {
 
     Car car = new Car();
@@ -28,10 +26,9 @@ public class CarInsuranceController {
 
     @PostMapping(value = "/car", params = "calculate")
     public String carInsuranceResult(@ModelAttribute("car") Car car, Model model) {
-      model.addAttribute("sum", carInsuranceService.doInsuranceResult(car));
-        return "deposit/deposit-menu";
+        model.addAttribute("result", carInsuranceService.doInsuranceResult(car));
+        return "insurance/car-insurance-menu";
     }
-
 
 
     @PostMapping(value = "/car", params = "clear")

@@ -11,32 +11,36 @@ public class CarInsuranceService {
     private double carEngineMultiplier;
     private double carModelMultiplier;
     private double yearOfProductionMultiplier;
-    private double taxiMultiplier;
+//    private double taxiMultiplier;
 
 
     public double doInsuranceResult(Car car) {
-        checkCredentials(car);
-        if (car.getResult() == Result.APPROVE) {
-            return calculateInsurancePayment();
+//        checkCredentials(car);
+//        if (car.getResult() == Result.APPROVE) {
+            return calculateInsurancePayment(car);
 
-        }
-        return 0;
+//        }
+//        return 0;
     }
 
 
-    public double calculateInsurancePayment() {
+    public double calculateInsurancePayment(Car car) {
+        calculateCarModelMultiplier(car);
+        calculateDriverExperienceMultiplier(car);
+        calculateCarEngineMultiplier(car);
+        calculateYearOfProductionMultiplier(car);
 
         double basePayment = 100;
         return basePayment * driverExperienceMultiplier * carModelMultiplier * carEngineMultiplier *
-                yearOfProductionMultiplier * taxiMultiplier;
+                yearOfProductionMultiplier ;
 
     }
 
-    public double checkForTaxi(Car car) {
-        if (car.isTaxi()) {
-            return taxiMultiplier = 1.5;
-        } else return taxiMultiplier = 1;
-    }
+//    public double checkForTaxi(Car car) {
+//        if (car.isTaxi()) {
+//            return taxiMultiplier = 1.5;
+//        } else return taxiMultiplier = 1;
+//    }
 
 
     public void calculateCarModelMultiplier(Car car) {
@@ -58,11 +62,11 @@ public class CarInsuranceService {
 
     public double calculateDriverExperienceMultiplier(Car car) {
         if (car.getDriverExperience() < 1) {
-            return driverExperienceMultiplier = 2;
-        } else if (car.getDriverExperience() >= 1 && car.getDriverExperience() < 3) {
             return driverExperienceMultiplier = 1.7;
-        } else if (car.getDriverExperience() >= 3 && car.getDriverExperience() < 5) {
+        } else if (car.getDriverExperience() >= 1 && car.getDriverExperience() < 3) {
             return driverExperienceMultiplier = 1.4;
+        } else if (car.getDriverExperience() >= 3 && car.getDriverExperience() < 5) {
+            return driverExperienceMultiplier = 1.2;
         } else if (car.getDriverExperience() >= 5) {
             return driverExperienceMultiplier = 1;
         }
@@ -104,7 +108,7 @@ public class CarInsuranceService {
     }
 
     public void checkCredentials(Car car) {
-        if (car.getCarEngine() <= 0 || car.getCarModel() == null || car.getDriverExperience() < 0
+        if (car.getCarEngine() <= 0 || car.getCarModel() == CarModel.NONE || car.getDriverExperience() < 0
                 || car.getYearOfProduction() < 1970 || car.getAge() < 16 || car.getName().isEmpty()
                 || car.getName().isBlank()) {
             car.setResult(Result.REJECT);

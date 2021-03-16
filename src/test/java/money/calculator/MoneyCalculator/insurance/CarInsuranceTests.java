@@ -21,30 +21,30 @@ public class CarInsuranceTests {
     @Test
     public void testCarInsuranceSum() {
         Car car = new Car();
-        car.setTaxi(true);
+//        car.setTaxi(true);
         car.setDriverExperience(2);
         car.setCarEngine(2);
         car.setYearOfProduction(2015);
         car.setCarModel(CarModel.AUDI);
-        carInsuranceService.checkForTaxi(car);
+//        carInsuranceService.checkForTaxi(car);
         carInsuranceService.calculateYearOfProductionMultiplier(car);
         carInsuranceService.checkCredentials(car);
         carInsuranceService.calculateCarEngineMultiplier(car);
         carInsuranceService.calculateDriverExperienceMultiplier(car);
         carInsuranceService.calculateCarModelMultiplier(car);
-        assertEquals(carInsuranceService.calculateInsurancePayment(), 636.48);
+        assertEquals(carInsuranceService.calculateInsurancePayment(car), 424.32);
     }
 
-    @Test
-    public void testTaxiMultiplier() {
-        Car car = new Car();
-        Car car1 = new Car();
-        car.setTaxi(true);
-        car1.setTaxi(false);
-        assertEquals(carInsuranceService.checkForTaxi(car), 1.5);
-        assertEquals(carInsuranceService.checkForTaxi(car1), 1);
-
-    }
+//    @Test
+//    public void testTaxiMultiplier() {
+//        Car car = new Car();
+//        Car car1 = new Car();
+//        car.setTaxi(true);
+//        car1.setTaxi(false);
+//        assertEquals(carInsuranceService.checkForTaxi(car), 1.5);
+//        assertEquals(carInsuranceService.checkForTaxi(car1), 1);
+//
+//    }
 
 
     @Test
@@ -68,9 +68,9 @@ public class CarInsuranceTests {
         car1.setDriverExperience(2);
         car2.setDriverExperience(4);
         car3.setDriverExperience(6);
-        assertEquals(carInsuranceService.calculateDriverExperienceMultiplier(car), 2);
-        assertEquals(carInsuranceService.calculateDriverExperienceMultiplier(car1), 1.7);
-        assertEquals(carInsuranceService.calculateDriverExperienceMultiplier(car2), 1.4);
+        assertEquals(carInsuranceService.calculateDriverExperienceMultiplier(car), 1.7);
+        assertEquals(carInsuranceService.calculateDriverExperienceMultiplier(car1), 1.4);
+        assertEquals(carInsuranceService.calculateDriverExperienceMultiplier(car2), 1.2);
         assertEquals(carInsuranceService.calculateDriverExperienceMultiplier(car3), 1);
 
 
