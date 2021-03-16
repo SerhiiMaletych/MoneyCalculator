@@ -19,15 +19,16 @@ public class CarInsuranceService {
         if (car.getResult() == Result.APPROVE) {
             return calculateInsurancePayment();
 
-        } return 0;
+        }
+        return 0;
     }
 
 
     public double calculateInsurancePayment() {
 
-            double basePayment = 100;
-            return basePayment * driverExperienceMultiplier * carModelMultiplier * carEngineMultiplier *
-                    yearOfProductionMultiplier * taxiMultiplier;
+        double basePayment = 100;
+        return basePayment * driverExperienceMultiplier * carModelMultiplier * carEngineMultiplier *
+                yearOfProductionMultiplier * taxiMultiplier;
 
     }
 
@@ -38,19 +39,21 @@ public class CarInsuranceService {
     }
 
 
-    public double calculateCarModelMultiplier(Car car) {
+    public void calculateCarModelMultiplier(Car car) {
         if (car.getCarModel() == CarModel.AUDI || car.getCarModel() == CarModel.BMW ||
                 car.getCarModel() == CarModel.FERRARI || car.getCarModel() == CarModel.PORSHE ||
                 car.getCarModel() == CarModel.TESLA || car.getCarModel() == CarModel.MERCEDES) {
-            return carModelMultiplier = 1.3;
+            carModelMultiplier = 1.3;
         } else if (car.getCarModel() == CarModel.ZAZ_ZAPOROZHEC) {
-            return carModelMultiplier = 2;
+            carModelMultiplier = 2;
 
         } else if (car.getCarModel() == CarModel.NONE) {
             System.out.println("Please select some car model from the list!");
-            return carModelMultiplier = 0;
+            carModelMultiplier = 0;
 
-        } else return carModelMultiplier = 1;
+        } else {
+            carModelMultiplier = 1;
+        }
     }
 
     public double calculateDriverExperienceMultiplier(Car car) {
