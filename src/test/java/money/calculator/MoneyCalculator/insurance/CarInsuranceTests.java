@@ -184,4 +184,18 @@ public class CarInsuranceTests {
 
 
     }
+
+    @Test
+    public void testAllCredentials() {
+        Car car = new Car();
+        car.setName("name");
+        car.setAge(20);
+        car.setCarModel(CarModel.AUDI);
+        car.setIsTaxi(Taxi.NO);
+        car.setYearOfProduction(2000);
+        car.setDriverExperience(5);
+        car.setCarEngine(3);
+        carInsuranceService.checkCredentials(car);
+        assertEquals(car.getResult(), Result.APPROVE);
+    }
 }

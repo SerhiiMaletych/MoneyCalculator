@@ -55,9 +55,10 @@
             </select> <br>
 
             <label>Is your car a taxi?</label>
-            <select th:field="*{isTaxi}" class=""></select>
-            <option th:value="'NONE'" th:text="NONE"></option>
+            <select th:field="*{isTaxi}" class="">
+            <option th:value="'NO'" th:text="NO"></option>
             <option th:value="'YES'" th:text="YES"></option>
+            </select>
             <br>
             <p class="">
                 <input type="submit" class="" name="calculate" value="CALCULATE"/>
