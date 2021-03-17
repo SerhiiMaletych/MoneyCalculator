@@ -1,4 +1,4 @@
-<title><!DOCTYPE html>
+<!DOCTYPE html>
     <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="UTF-8">
@@ -52,9 +52,13 @@
                 <option th:value="'HYUNDAI'" th:text="HYUNDAI"></option>
                 <option th:value="'DODGE'" th:text="DODGE"></option>
 
-
             </select> <br>
 
+            <label>Is your car a taxi?</label>
+            <select th:field="*{isTaxi}" class=""></select>
+            <option th:value="'NONE'" th:text="NONE"></option>
+            <option th:value="'YES'" th:text="YES"></option>
+            <br>
             <p class="">
                 <input type="submit" class="" name="calculate" value="CALCULATE"/>
             </p>

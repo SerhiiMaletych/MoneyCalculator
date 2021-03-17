@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import money.calculator.MoneyCalculator.model.Result;
 import money.calculator.MoneyCalculator.model.insurance.CarModel;
+import money.calculator.MoneyCalculator.model.insurance.Taxi;
 
 import javax.persistence.Entity;
 
@@ -24,11 +25,11 @@ public class Car {
     private double carEngine;
     private int yearOfProduction;
     private int driverExperience;
-    private boolean isTaxi;
+    private Taxi isTaxi;
     private Result result;
     private int insurancePayment;
 
-    public Car(Long id, String name, int age, CarModel carModel, double carEngine, int yearOfProduction, int driverExperience, boolean isTaxi) {
+    public Car(Long id, String name, int age, CarModel carModel, double carEngine, int yearOfProduction, int driverExperience, Taxi isTaxi) {
         Id = id;
         this.name = name;
         this.age = age;
@@ -39,7 +40,7 @@ public class Car {
         this.isTaxi = isTaxi;
     }
 
-    public Car(String name, int age, CarModel carModel, double carEngine, int yearOfProduction, int driverExperience, boolean isTaxi, Result result, int insurancePayment) {
+    public Car(String name, int age, CarModel carModel, double carEngine, int yearOfProduction, int driverExperience, Taxi isTaxi, Result result, int insurancePayment) {
         this.name = name;
         this.age = age;
         this.carModel = carModel;

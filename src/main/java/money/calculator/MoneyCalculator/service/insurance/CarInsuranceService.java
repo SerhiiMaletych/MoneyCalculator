@@ -3,6 +3,7 @@ package money.calculator.MoneyCalculator.service.insurance;
 import money.calculator.MoneyCalculator.entity.insurance.Car;
 import money.calculator.MoneyCalculator.model.Result;
 import money.calculator.MoneyCalculator.model.insurance.CarModel;
+import money.calculator.MoneyCalculator.model.insurance.Taxi;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,16 +12,16 @@ public class CarInsuranceService {
     private double carEngineMultiplier;
     private double carModelMultiplier;
     private double yearOfProductionMultiplier;
-//    private double taxiMultiplier;
+    private double taxiMultiplier;
 
 
     public double doInsuranceResult(Car car) {
-//        checkCredentials(car);
-//        if (car.getResult() == Result.APPROVE) {
+        checkCredentials(car);
+        if (car.getResult() == Result.APPROVE) {
             return calculateInsurancePayment(car);
 
-//        }
-//        return 0;
+        }
+        return 0;
     }
 
 
@@ -29,18 +30,18 @@ public class CarInsuranceService {
         calculateDriverExperienceMultiplier(car);
         calculateCarEngineMultiplier(car);
         calculateYearOfProductionMultiplier(car);
-
+        checkForTaxi(car);
         double basePayment = 100;
         return basePayment * driverExperienceMultiplier * carModelMultiplier * carEngineMultiplier *
-                yearOfProductionMultiplier ;
+                yearOfProductionMultiplier*taxiMultiplier;
 
     }
 
-//    public double checkForTaxi(Car car) {
-//        if (car.isTaxi()) {
-//            return taxiMultiplier = 1.5;
-//        } else return taxiMultiplier = 1;
-//    }
+    public double checkForTaxi(Car car) {
+        if (car.getIsTaxi() == Taxi.YES) {
+            return taxiMultiplier = 1.5;
+        } else return taxiMultiplier = 1;
+    }
 
 
     public void calculateCarModelMultiplier(Car car) {
@@ -122,7 +123,7 @@ public class CarInsuranceService {
         car.setCarEngine(0);
         car.setYearOfProduction(1971);
         car.setDriverExperience(0);
-        car.setTaxi(false);
+        car.setIsTaxi(Taxi.NO);
         return car;
     }
 

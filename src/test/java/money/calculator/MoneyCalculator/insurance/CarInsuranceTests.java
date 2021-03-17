@@ -3,6 +3,7 @@ package money.calculator.MoneyCalculator.insurance;
 import money.calculator.MoneyCalculator.entity.insurance.Car;
 import money.calculator.MoneyCalculator.model.Result;
 import money.calculator.MoneyCalculator.model.insurance.CarModel;
+import money.calculator.MoneyCalculator.model.insurance.Taxi;
 import money.calculator.MoneyCalculator.service.insurance.CarInsuranceService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,40 +22,53 @@ public class CarInsuranceTests {
     @Test
     public void testCarInsuranceSum() {
         Car car = new Car();
-//        car.setTaxi(true);
+        Car car1 = new Car();
+        car.setIsTaxi(Taxi.YES);
         car.setDriverExperience(2);
         car.setCarEngine(2);
         car.setYearOfProduction(2015);
         car.setCarModel(CarModel.AUDI);
-//        carInsuranceService.checkForTaxi(car);
+        carInsuranceService.checkForTaxi(car);
         carInsuranceService.calculateYearOfProductionMultiplier(car);
         carInsuranceService.checkCredentials(car);
         carInsuranceService.calculateCarEngineMultiplier(car);
         carInsuranceService.calculateDriverExperienceMultiplier(car);
         carInsuranceService.calculateCarModelMultiplier(car);
-        assertEquals(carInsuranceService.calculateInsurancePayment(car), 424.32);
+        assertEquals(carInsuranceService.calculateInsurancePayment(car), 524.16);
+        car.setIsTaxi(Taxi.NO);
+        car.setDriverExperience(5);
+        car.setCarEngine(3);
+        car.setYearOfProduction(2002);
+        car.setCarModel(CarModel.DAEWOO);
+        carInsuranceService.checkForTaxi(car1);
+        carInsuranceService.calculateYearOfProductionMultiplier(car1);
+        carInsuranceService.checkCredentials(car1);
+        carInsuranceService.calculateCarEngineMultiplier(car1);
+        carInsuranceService.calculateDriverExperienceMultiplier(car1);
+        carInsuranceService.calculateCarModelMultiplier(car1);
+        assertEquals(carInsuranceService.calculateInsurancePayment(car1), 204.0);
     }
 
-//    @Test
-//    public void testTaxiMultiplier() {
-//        Car car = new Car();
-//        Car car1 = new Car();
-//        car.setTaxi(true);
-//        car1.setTaxi(false);
-//        assertEquals(carInsuranceService.checkForTaxi(car), 1.5);
-//        assertEquals(carInsuranceService.checkForTaxi(car1), 1);
-//
-//    }
+    @Test
+    public void testTaxiMultiplier() {
+        Car car = new Car();
+        Car car1 = new Car();
+        car.setIsTaxi(Taxi.YES);
+        car1.setIsTaxi(Taxi.NO);
+        assertEquals(carInsuranceService.checkForTaxi(car), 1.5);
+        assertEquals(carInsuranceService.checkForTaxi(car1), 1);
+
+    }
 
 
     @Test
     public void testForTaxi() {
         Car car = new Car();
         Car car1 = new Car();
-        car.setTaxi(true);
-        car1.setTaxi(false);
-        assertEquals(car.isTaxi(), true);
-        assertEquals(car1.isTaxi(), false);
+        car.setIsTaxi(Taxi.YES);
+        car1.setIsTaxi(Taxi.NO);
+        assertEquals(car.getIsTaxi(), Taxi.YES);
+        assertEquals(car1.getIsTaxi(), Taxi.NO);
 
     }
 
@@ -111,14 +125,14 @@ public class CarInsuranceTests {
         car.setAge(20);
         car.setCarEngine(2);
         car.setYearOfProduction(2000);
-        car.setTaxi(true);
+        car.setIsTaxi(Taxi.YES);
         car.setCarModel(CarModel.AUDI);
         carInsuranceService.clear(car);
         assertEquals(car.getName(), "");
         assertEquals(car.getAge(), 0);
         assertEquals(car.getCarEngine(), 0);
         assertEquals(car.getYearOfProduction(), 1971);
-        assertEquals(car.isTaxi(), false);
+        assertEquals(car.getIsTaxi(), Taxi.NO);
         assertEquals(car.getCarModel(), CarModel.NONE);
     }
 
