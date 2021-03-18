@@ -17,6 +17,31 @@ public class CreditTests {
     @Autowired
     CreditService creditService;
 
+
+
+
+    @Test
+    public void testRightPercentsCalculation() {
+        Credit credit = new Credit();
+        Credit credit1 = new Credit();
+        Credit credit2 = new Credit();
+        credit.setSum(10000);
+        credit.setSalary(4000);
+        credit.setPeriod(6);
+        credit1.setSum(100000);
+        credit1.setSalary(10000);
+        credit1.setPeriod(12);
+        credit2.setSum(35000);
+        credit2.setSalary(3500);
+        credit2.setPeriod(4);
+        creditService.findPercents(credit);
+        creditService.findPercents(credit1);
+        creditService.findPercents(credit2);
+        assertEquals(creditService.calculatePercents(credit), 450);
+        assertEquals(creditService.calculatePercents(credit1), 13000);
+        assertEquals(creditService.calculatePercents(credit2), 1516.6666666666667);
+
+    }
     @Test
     public void testCLearButton() {
         Credit credit = new Credit();
@@ -46,17 +71,17 @@ public class CreditTests {
         Credit credit = new Credit();
         Credit credit1 = new Credit();
         credit.setConviction(Conviction.NO);
-        credit.setPercents(10);
+        credit.setPercents(0.11);
         credit1.setConviction(Conviction.YES);
-        credit1.setPercents(10);
+        credit1.setPercents(0.1);
         creditService.checkConviction(credit);
         creditService.checkConviction(credit1);
-        assertEquals(11, credit.getPercents());
-        assertEquals(10, credit1.getPercents());
+        assertEquals(0.12, credit.getPercents());
+        assertEquals(0.1, credit1.getPercents());
     }
 
     @Test
-    public void checkAmountofSalaryToGetCredit() {
+    public void checkAmountOfSalaryToGetCredit() {
         Credit credit = new Credit();
         Credit credit1 = new Credit();
         credit.setSalary(5000);

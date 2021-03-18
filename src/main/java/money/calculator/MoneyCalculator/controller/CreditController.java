@@ -24,11 +24,11 @@ public class CreditController {
         return "credit/credit-menu";
     }
 
-
-    public String creditResult(Model model) {
-        model.addAttribute("result", creditService.findCreditResult(credit));
-        return  "credit/credit-menu";
-    }
+//
+//    public String creditResult(Model model, Credit credit) {
+//        model.addAttribute("result", creditService.findCreditResult(credit));
+//        return  "credit/credit-menu";
+//    }
 
 //    public String creditSum(Model model) {
 //        model.addAttribute("sum", creditService.findCreditSum(credit));
