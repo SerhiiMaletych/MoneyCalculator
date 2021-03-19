@@ -4,6 +4,7 @@ import money.calculator.MoneyCalculator.entity.Credit;
 import money.calculator.MoneyCalculator.service.CreditService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,22 +19,21 @@ public class CreditController {
         this.creditService = creditService;
     }
 
-    @RequestMapping(value="/credit")
+    @RequestMapping(value = "/credit")
     public String creditMenu(Model model) {
         model.addAttribute("credit", credit);
         return "credit/credit-menu";
     }
 
-//
-//    public String creditResult(Model model, Credit credit) {
-//        model.addAttribute("result", creditService.findCreditResult(credit));
-//        return  "credit/credit-menu";
-//    }
+    @PostMapping(value = "/credit", params = "calculate")
+    public String depositResult(@ModelAttribute("deposit") Credit credit, Model model, BindingResult bindingResult) {
+        model.addAttribute("percents", creditService.findPercentsForCredit(credit) * 100);
+        model.addAttribute("percentsFromSum", creditService.calculateAmountOfPercentPayment(credit));
+        model.addAttribute("creditSum", creditService.findCreditSum(credit));
+        model.addAttribute("monthPayment", creditService.findMonthPayment(credit));
 
-//    public String creditSum(Model model) {
-//        model.addAttribute("sum", creditService.findCreditSum(credit));
-//        return "credit/credit-menu";
-//    }
+        return "credit/credit-menu";
+    }
 
 
     @PostMapping(value = "/credit", params = "clear")

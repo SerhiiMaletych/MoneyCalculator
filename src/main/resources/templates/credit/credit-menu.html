@@ -56,9 +56,24 @@
         <input class="" pattern= "[0-9]+" type="text" th:field="*{period}" required/>
 
 
+        <p class="">
+            <input type="submit" class=" "  name="calculate" value="DO IT"/>
+        </p>
         <p>
             <input type="submit" class="button" name="clear" value="Clear"/>
         </p>
+        <p class="" th:text="'Year percents for your credit: '"></p>
+        <p  class="" th:text=" ${percents}"></p>
+
+        <p class="" th:text="'Percents from your sum: '"></p>
+        <p  class="" th:text=" ${percentsFromSum}"></p>
+
+        <p class="" th:text="'Your credit sum: '"></p>
+        <p  class="" th:text=" ${creditSum}"></p>
+
+        <p class="" th:text="'Your month payment: '"></p>
+        <p  class="" th:text=" ${monthPayment}"></p>
+
 
 
 

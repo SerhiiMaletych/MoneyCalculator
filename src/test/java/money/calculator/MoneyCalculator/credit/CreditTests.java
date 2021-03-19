@@ -1,13 +1,16 @@
 package money.calculator.MoneyCalculator.credit;
 
 import money.calculator.MoneyCalculator.entity.Credit;
-import money.calculator.MoneyCalculator.model.*;
-import money.calculator.MoneyCalculator.model.credit.Conviction;
+import money.calculator.MoneyCalculator.model.Employed;
+import money.calculator.MoneyCalculator.model.Married;
 import money.calculator.MoneyCalculator.model.Result;
+import money.calculator.MoneyCalculator.model.Sex;
+import money.calculator.MoneyCalculator.model.credit.Conviction;
 import money.calculator.MoneyCalculator.service.CreditService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -17,7 +20,29 @@ public class CreditTests {
     @Autowired
     CreditService creditService;
 
+    public void findCreditResult(Credit credit) {
+        var division = credit.getSum() / credit.getSalary();
 
+        if (division < 10) {
+            credit.setResult(Result.APPROVE);
+        }
+        else credit.setResult(Result.REJECT);
+    }
+
+    @Test
+    public void checkCreditResultDependingOnSalary() {
+        Credit credit = new Credit();
+        Credit credit1 = new Credit();
+        credit.setSum(100000);
+        credit.setSalary(11111);
+        credit1.setSum(50000);
+        credit1.setSalary(3000);
+        creditService.findCreditResult(credit);
+        creditService.findCreditResult(credit1);
+        assertEquals(credit.getResult(),Result.APPROVE);
+        assertEquals(credit1.getResult(),Result.REJECT);
+
+    }
 
 
     @Test
@@ -34,14 +59,15 @@ public class CreditTests {
         credit2.setSum(35000);
         credit2.setSalary(3500);
         credit2.setPeriod(4);
-        creditService.findPercents(credit);
-        creditService.findPercents(credit1);
-        creditService.findPercents(credit2);
-        assertEquals(creditService.calculatePercents(credit), 450);
-        assertEquals(creditService.calculatePercents(credit1), 13000);
-        assertEquals(creditService.calculatePercents(credit2), 1516.6666666666667);
+        creditService.findPercentsForCredit(credit);
+        creditService.findPercentsForCredit(credit1);
+        creditService.findPercentsForCredit(credit2);
+        assertEquals(creditService.calculateAmountOfPercentPayment(credit), 450);
+        assertEquals(creditService.calculateAmountOfPercentPayment(credit1), 13000);
+        assertEquals(creditService.calculateAmountOfPercentPayment(credit2), 1516.6666666666667);
 
     }
+
     @Test
     public void testCLearButton() {
         Credit credit = new Credit();
@@ -64,8 +90,8 @@ public class CreditTests {
         assertEquals(Married.NO, credit.getMarried());
 
 
-
     }
+
     @Test
     public void checkBonusPercentsForNoConviction() {
         Credit credit = new Credit();
