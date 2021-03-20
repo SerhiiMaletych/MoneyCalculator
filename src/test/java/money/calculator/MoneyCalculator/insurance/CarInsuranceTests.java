@@ -1,5 +1,6 @@
 package money.calculator.MoneyCalculator.insurance;
 
+import money.calculator.MoneyCalculator.entity.Credit;
 import money.calculator.MoneyCalculator.entity.insurance.Car;
 import money.calculator.MoneyCalculator.model.Result;
 import money.calculator.MoneyCalculator.model.insurance.CarModel;
@@ -21,13 +22,8 @@ public class CarInsuranceTests {
 
     @Test
     public void testCarInsuranceSum() {
-        Car car = new Car();
-        Car car1 = new Car();
-        car.setIsTaxi(Taxi.YES);
-        car.setDriverExperience(2);
-        car.setCarEngine(2);
-        car.setYearOfProduction(2015);
-        car.setCarModel(CarModel.AUDI);
+        Car car = new Car(CarModel.AUDI, 2,2015,2,Taxi.YES);
+        Car car1 = new Car(CarModel.DAEWOO, 3, 2002, 5, Taxi.NO);
         carInsuranceService.checkForTaxi(car);
         carInsuranceService.calculateYearOfProductionMultiplier(car);
         carInsuranceService.checkCredentials(car);
@@ -35,18 +31,14 @@ public class CarInsuranceTests {
         carInsuranceService.calculateDriverExperienceMultiplier(car);
         carInsuranceService.calculateCarModelMultiplier(car);
         assertEquals(carInsuranceService.calculateInsurancePayment(car), 524.16);
-        car.setIsTaxi(Taxi.NO);
-        car.setDriverExperience(5);
-        car.setCarEngine(3);
-        car.setYearOfProduction(2002);
-        car.setCarModel(CarModel.DAEWOO);
+
         carInsuranceService.checkForTaxi(car1);
         carInsuranceService.calculateYearOfProductionMultiplier(car1);
         carInsuranceService.checkCredentials(car1);
         carInsuranceService.calculateCarEngineMultiplier(car1);
         carInsuranceService.calculateDriverExperienceMultiplier(car1);
         carInsuranceService.calculateCarModelMultiplier(car1);
-        assertEquals(carInsuranceService.calculateInsurancePayment(car1), 204.0);
+        assertEquals(carInsuranceService.calculateInsurancePayment(car1), 280.0);
     }
 
     @Test

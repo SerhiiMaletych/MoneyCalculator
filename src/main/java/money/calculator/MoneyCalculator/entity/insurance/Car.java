@@ -40,6 +40,14 @@ public class Car {
         this.isTaxi = isTaxi;
     }
 
+    public Car(CarModel carModel, double carEngine, int yearOfProduction, int driverExperience, Taxi isTaxi) {
+        this.carModel = carModel;
+        this.carEngine = carEngine;
+        this.yearOfProduction = yearOfProduction;
+        this.driverExperience = driverExperience;
+        this.isTaxi = isTaxi;
+    }
+
     public Car(String name, int age, CarModel carModel, double carEngine, int yearOfProduction, int driverExperience, Taxi isTaxi, Result result, int insurancePayment) {
         this.name = name;
         this.age = age;

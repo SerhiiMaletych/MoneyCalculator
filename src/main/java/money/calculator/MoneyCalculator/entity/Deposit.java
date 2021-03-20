@@ -25,13 +25,17 @@ public class Deposit {
     private Employed employed;
     private Married married;
     private int period;
-
-
     private double percents;
     private double totalSum;
 
 
 
+
+    public Deposit(int sum, int period, double percents) {
+        this.sum = sum;
+        this.period = period;
+        this.percents = percents;
+    }
 
     public Deposit(String name, Sex sex, int age, int sum, Employed employed, int period, double percents, double totalSum, Married married) {
         this.name = name;

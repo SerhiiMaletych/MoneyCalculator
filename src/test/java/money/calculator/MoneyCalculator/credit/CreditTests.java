@@ -20,23 +20,12 @@ public class CreditTests {
     @Autowired
     CreditService creditService;
 
-    public void findCreditResult(Credit credit) {
-        var division = credit.getSum() / credit.getSalary();
 
-        if (division < 10) {
-            credit.setResult(Result.APPROVE);
-        }
-        else credit.setResult(Result.REJECT);
-    }
 
     @Test
     public void checkCreditResultDependingOnSalary() {
-        Credit credit = new Credit();
-        Credit credit1 = new Credit();
-        credit.setSum(100000);
-        credit.setSalary(11111);
-        credit1.setSum(50000);
-        credit1.setSalary(3000);
+        Credit credit = new Credit(100000,11111);
+        Credit credit1 = new Credit(50000,3000);
         creditService.findCreditResult(credit);
         creditService.findCreditResult(credit1);
         assertEquals(credit.getResult(),Result.APPROVE);
@@ -47,18 +36,9 @@ public class CreditTests {
 
     @Test
     public void testRightPercentsCalculation() {
-        Credit credit = new Credit();
-        Credit credit1 = new Credit();
-        Credit credit2 = new Credit();
-        credit.setSum(10000);
-        credit.setSalary(4000);
-        credit.setPeriod(6);
-        credit1.setSum(100000);
-        credit1.setSalary(10000);
-        credit1.setPeriod(12);
-        credit2.setSum(35000);
-        credit2.setSalary(3500);
-        credit2.setPeriod(4);
+        Credit credit = new Credit(10000,4000,6);
+        Credit credit1 = new Credit(100000,10000,12);
+        Credit credit2 = new Credit(35000,3500,4);
         creditService.findPercentsForCredit(credit);
         creditService.findPercentsForCredit(credit1);
         creditService.findPercentsForCredit(credit2);

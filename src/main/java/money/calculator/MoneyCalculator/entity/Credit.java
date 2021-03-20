@@ -33,6 +33,16 @@ public class Credit {
     private double credit;
 
 
+    public Credit(int sum, int salary, int period) {
+        this.sum = sum;
+        this.salary = salary;
+        this.period = period;
+    }
+
+    public Credit(int sum, int salary) {
+        this.sum = sum;
+        this.salary = salary;
+    }
 
     public Credit(String name, Sex sex, Employed employed, Conviction conviction,
                   Married married, int age, int sum, int salary, int period,
