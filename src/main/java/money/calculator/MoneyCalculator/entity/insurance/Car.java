@@ -26,9 +26,6 @@ public class Car {
     private int yearOfProduction;
     private int driverExperience;
     private Taxi isTaxi;
-
-
-
     private Result result;
     private int insurancePayment;
 

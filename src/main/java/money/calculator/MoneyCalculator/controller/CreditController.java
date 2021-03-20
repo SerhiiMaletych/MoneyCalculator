@@ -26,8 +26,8 @@ public class CreditController {
     }
 
     @PostMapping(value = "/credit", params = "calculate")
-    public String depositResult(@ModelAttribute("deposit") Credit credit, Model model, BindingResult bindingResult) {
-        model.addAttribute("percents", creditService.findPercentsForCredit(credit) * 100);
+    public String creditResult(@ModelAttribute("credit") Credit credit, Model model, BindingResult bindingResult) {
+        model.addAttribute("percents", creditService.findPercentsForCredit(credit));
         model.addAttribute("percentsFromSum", creditService.calculateAmountOfPercentPayment(credit));
         model.addAttribute("creditSum", creditService.findCreditSum(credit));
         model.addAttribute("monthPayment", creditService.findMonthPayment(credit));
@@ -37,7 +37,7 @@ public class CreditController {
 
 
     @PostMapping(value = "/credit", params = "clear")
-    public String clear(@ModelAttribute("deposit") Credit credit, Model model) {
+    public String clear(@ModelAttribute("credit") Credit credit, Model model) {
         model.addAttribute("credit", creditService.clear(credit));
         model.addAttribute("result", 0);
         return "credit/credit-menu";
