@@ -21,24 +21,52 @@ public class CreditTests {
     CreditService creditService;
 
 
+    @Test
+    public void testRightMonthlyPayments() {
+        Credit credit = new Credit("Sofi", Sex.FEMALE, Employed.YES, Conviction.NO, Married.YES, 40,
+                20000, 10000, 10);
+        Credit credit1 = new Credit("Jack", Sex.MALE, Employed.YES, Conviction.YES, Married.NO, 36,
+                15000, 7000, 8);
+        Credit credit2 = new Credit("Julia", Sex.FEMALE, Employed.NO, Conviction.NO, Married.YES, 60,
+                10000, 1, 6);
+        assertEquals(creditService.findMonthPayment(credit), 2233.333333333333);
+        assertEquals(creditService.findMonthPayment(credit1), 2012.5);
+        assertEquals(creditService.findMonthPayment(credit2), 0);
+
+    }
+
+    @Test
+    public void testFindRightCreditSum() {
+        Credit credit = new Credit("Sofi", Sex.FEMALE, Employed.YES, Conviction.NO, Married.YES, 40,
+                20000, 10000, 10);
+        Credit credit1 = new Credit("Jack", Sex.MALE, Employed.YES, Conviction.YES, Married.NO, 36,
+                15000, 7000, 8);
+        Credit credit2 = new Credit("Julia", Sex.FEMALE, Employed.NO, Conviction.NO, Married.YES, 60,
+                10000, 1, 6);
+        assertEquals(creditService.findCreditSum(credit), 22333.333333333332);
+        assertEquals(creditService.findCreditSum(credit1), 16100.0);
+        assertEquals(creditService.findCreditSum(credit2), 0);
+
+
+    }
 
     @Test
     public void checkCreditResultDependingOnSalary() {
-        Credit credit = new Credit(100000,11111);
-        Credit credit1 = new Credit(50000,3000);
+        Credit credit = new Credit(100000, 11111);
+        Credit credit1 = new Credit(50000, 3000);
         creditService.findCreditResult(credit);
         creditService.findCreditResult(credit1);
-        assertEquals(credit.getResult(),Result.APPROVE);
-        assertEquals(credit1.getResult(),Result.REJECT);
+        assertEquals(credit.getResult(), Result.APPROVE);
+        assertEquals(credit1.getResult(), Result.REJECT);
 
     }
 
 
     @Test
     public void testRightPercentsCalculation() {
-        Credit credit = new Credit(10000,4000,6);
-        Credit credit1 = new Credit(100000,10000,12);
-        Credit credit2 = new Credit(35000,3500,4);
+        Credit credit = new Credit(10000, 4000, 6);
+        Credit credit1 = new Credit(100000, 10000, 12);
+        Credit credit2 = new Credit(35000, 3500, 4);
         creditService.findPercentsForCredit(credit);
         creditService.findPercentsForCredit(credit1);
         creditService.findPercentsForCredit(credit2);
@@ -96,6 +124,23 @@ public class CreditTests {
         creditService.checkSalary(credit1);
         assertEquals(Result.APPROVE, credit.getResult());
         assertEquals(Result.REJECT, credit1.getResult());
+
+    }
+
+    @Test
+    public void testCredentials() {
+        Credit credit = new Credit("Oksana", Employed.YES, 30, 10000);
+        Credit credit1 = new Credit("Petro", Employed.NO, 25, 0);
+        Credit credit2 = new Credit("Fedor", Employed.YES, 14, 2000);
+
+        creditService.checkCredentials(credit);
+        creditService.checkCredentials(credit1);
+        creditService.checkCredentials(credit2);
+
+        assertEquals(Result.APPROVE, credit.getResult());
+        assertEquals(Result.REJECT, credit1.getResult());
+        assertEquals(Result.REJECT, credit2.getResult());
+
 
     }
 

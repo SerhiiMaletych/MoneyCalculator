@@ -28,7 +28,10 @@ public class Deposit {
     private double percents;
     private double totalSum;
 
-
+    public Deposit(int sum, int period) {
+        this.sum = sum;
+        this.period = period;
+    }
 
 
     public Deposit(int sum, int period, double percents) {
@@ -53,10 +56,6 @@ public class Deposit {
         this.percents = percents;
         return percents;
     }
-
-
-
-
 
 
 }

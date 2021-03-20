@@ -1,11 +1,14 @@
 package money.calculator.MoneyCalculator.entity;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import money.calculator.MoneyCalculator.model.*;
-import money.calculator.MoneyCalculator.model.credit.Conviction;
+import money.calculator.MoneyCalculator.model.Employed;
+import money.calculator.MoneyCalculator.model.Married;
 import money.calculator.MoneyCalculator.model.Result;
+import money.calculator.MoneyCalculator.model.Sex;
+import money.calculator.MoneyCalculator.model.credit.Conviction;
 
 import javax.persistence.Entity;
 
@@ -32,16 +35,15 @@ public class Credit {
     private double percents;
     private double credit;
 
+    public Credit(int sum, int salary) {
+        this.sum = sum;
+        this.salary = salary;
+    }
 
     public Credit(int sum, int salary, int period) {
         this.sum = sum;
         this.salary = salary;
         this.period = period;
-    }
-
-    public Credit(int sum, int salary) {
-        this.sum = sum;
-        this.salary = salary;
     }
 
     public Credit(String name, Sex sex, Employed employed, Conviction conviction,
@@ -62,5 +64,25 @@ public class Credit {
     }
 
 
+    public Credit(String name, Employed employed, int age, int salary) {
+        this.name = name;
+        this.employed = employed;
+        this.age = age;
+        this.salary = salary;
+    }
 
+
+    public Credit(String name, Sex sex, Employed employed, Conviction conviction, Married married,
+                  int age, int sum, int salary, int period) {
+        this.name = name;
+        this.sex = sex;
+        this.employed = employed;
+        this.conviction = conviction;
+        this.married = married;
+        this.age = age;
+        this.sum = sum;
+        this.salary = salary;
+        this.period = period;
+
+    }
 }

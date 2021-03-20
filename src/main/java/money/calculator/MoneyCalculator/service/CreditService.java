@@ -8,6 +8,9 @@ import money.calculator.MoneyCalculator.model.Sex;
 import money.calculator.MoneyCalculator.model.credit.Conviction;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
+import java.util.Optional;
+
 @Service
 public class CreditService {
 
@@ -49,12 +52,9 @@ public class CreditService {
     }
 
 
-
-
     public void findCreditResult(Credit credit) {
-        var division = credit.getSum() / credit.getSalary();
-
-        if (division < 10) {
+            var division = credit.getSum() / credit.getSalary();
+         if (division < 10 && division!=0) {
              credit.setResult(Result.APPROVE);
         }
         else credit.setResult(Result.REJECT);
@@ -63,7 +63,7 @@ public class CreditService {
 
     public void checkCredentials(Credit credit) {
         if (credit.getName().isEmpty() || credit.getAge() < 18 || credit.getAge() > 90 ||
-                credit.getSalary() < 100 || credit.getEmployed() == Employed.NO) {
+                credit.getSalary() < 1000 || credit.getEmployed() == Employed.NO) {
             credit.setResult(Result.REJECT);
         }
         else credit.setResult(Result.APPROVE);

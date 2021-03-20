@@ -1,6 +1,5 @@
 package money.calculator.MoneyCalculator.insurance;
 
-import money.calculator.MoneyCalculator.entity.Credit;
 import money.calculator.MoneyCalculator.entity.insurance.Car;
 import money.calculator.MoneyCalculator.model.Result;
 import money.calculator.MoneyCalculator.model.insurance.CarModel;
@@ -22,8 +21,10 @@ public class CarInsuranceTests {
 
     @Test
     public void testCarInsuranceSum() {
-        Car car = new Car(CarModel.AUDI, 2,2015,2,Taxi.YES);
+        Car car = new Car(CarModel.AUDI, 2, 2015, 2, Taxi.YES);
         Car car1 = new Car(CarModel.DAEWOO, 3, 2002, 5, Taxi.NO);
+        Car car2 = new Car(CarModel.ZAZ_ZAPOROZHEC, 1.5, 1980, 20, Taxi.NO);
+
         carInsuranceService.checkForTaxi(car);
         carInsuranceService.calculateYearOfProductionMultiplier(car);
         carInsuranceService.checkCredentials(car);
@@ -39,6 +40,15 @@ public class CarInsuranceTests {
         carInsuranceService.calculateDriverExperienceMultiplier(car1);
         carInsuranceService.calculateCarModelMultiplier(car1);
         assertEquals(carInsuranceService.calculateInsurancePayment(car1), 280.0);
+
+        carInsuranceService.checkForTaxi(car2);
+        carInsuranceService.calculateYearOfProductionMultiplier(car2);
+        carInsuranceService.checkCredentials(car2);
+        carInsuranceService.calculateCarEngineMultiplier(car2);
+        carInsuranceService.calculateDriverExperienceMultiplier(car2);
+        carInsuranceService.calculateCarModelMultiplier(car2);
+        assertEquals(carInsuranceService.calculateInsurancePayment(car2), 560.0);
+
     }
 
     @Test
@@ -174,20 +184,15 @@ public class CarInsuranceTests {
         assertEquals(car.getResult(), Result.REJECT);
         assertEquals(car1.getResult(), Result.REJECT);
 
-
     }
 
     @Test
     public void testAllCredentials() {
-        Car car = new Car();
-        car.setName("name");
-        car.setAge(20);
-        car.setCarModel(CarModel.AUDI);
-        car.setIsTaxi(Taxi.NO);
-        car.setYearOfProduction(2000);
-        car.setDriverExperience(5);
-        car.setCarEngine(3);
+        Car car = new Car("Petya", 30, CarModel.AUDI, 3,
+                2000, 5, Taxi.NO);
         carInsuranceService.checkCredentials(car);
         assertEquals(car.getResult(), Result.APPROVE);
+
+
     }
 }

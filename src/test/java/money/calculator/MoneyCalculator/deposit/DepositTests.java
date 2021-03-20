@@ -69,5 +69,18 @@ public class DepositTests {
         assertEquals(1008.3333333333334, depositService.calculateDeposit(deposit));
     }
 
+    @Test
+    public void testClearButton() {
+        Deposit deposit = new Deposit(10000, 10);
+        Deposit deposit1 = new Deposit(5000, 7);
+        depositService.clear(deposit);
+        depositService.clear(deposit1);
+        assertEquals(deposit.getSum(), 0);
+        assertEquals(deposit1.getSum(), 0);
+        assertEquals(deposit.getPeriod(),0);
+        assertEquals(deposit1.getPeriod(), 0);
+
+    }
+
 
 }
