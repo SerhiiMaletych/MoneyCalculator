@@ -5,78 +5,97 @@
     <title>Credit</title>
 
     <link rel="stylesheet" type="text/css" href="/css/credit.css">
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+
 
 </head>
 <body>
+<div class="div-header">
+    <th:block th:include="/header"></th:block>
+</div>
 
 
 <div class="">
     <form action="#" th:action="@{/credit}" th:object="${credit}" method="POST">
-        <h2 class="">Please fill all the fields below:</h2>
+        <h2 class="">In order to know your credit sum, fill all fields below:</h2>
 
         <label>Name</label>
-        <input class="" type="text" th:field="*{name}" required/>
+        <input class="user-input" type="text" th:field="*{name}" required/>
+        <br>
 
         <label>Sex</label>
-        <select th:field="*{sex}" class="">
+        <select th:field="*{sex}" class="user-input">
             <option th:value="'MALE'" th:text="MALE"></option>
             <option th:value="'FEMALE'" th:text="FEMALE"></option>
             <option th:value="'NONE'" th:text="NONE"></option>
 
         </select>
+        <br>
+
 
         <label>Employed</label>
 
-        <select th:field="*{employed}" class="">
+        <select th:field="*{employed}" class="user-input">
             <option th:value="'YES'" th:text="YES"></option>
             <option th:value="'NO'" th:text="NO"></option>
 
         </select>
+        <br>
+
 
         <label>Conviction</label>
 
-        <select th:field="*{conviction}" class="input expired">
+        <select th:field="*{conviction}" class="user-input">
             <option th:value="'YES'" th:text="YES"></option>
             <option th:value="'NO'" th:text="NO"></option>
 
 
         </select>
+        <br>
+
 
         <label>Married</label>
-        <select th:field="*{married}" class="input expired">
+        <select th:field="*{married}" class="user-input">
             <option th:value="'YES'" th:text="YES"></option>
             <option th:value="'NO'" th:text="NO"></option>
 
         </select>
+        <br>
+
 
         <label>Age</label>
-        <input class="" pattern="[0-9]+" type="text" th:field="*{age}" required/>
+        <input class="user-input" pattern="[0-9]+" type="text" th:field="*{age}" required/>
+        <br>
+
         <label>Sum</label>
-        <input class="" pattern="[0-9]+" type="text" th:field="*{sum}" required/>
+        <input class="user-input" pattern="[0-9]+" type="text" th:field="*{sum}" required/>
+        <br>
+
         <label>Salary</label>
-        <input class="" pattern="[0-9]+" type="text" th:field="*{salary}" required/>
+        <input class="user-input" pattern="[0-9]+" type="text" th:field="*{salary}" required/>
+        <br>
+
         <label>Period</label>
-        <input class="" pattern="[0-9]+" type="text" th:field="*{period}" required/>
+        <input class="user-input" pattern="[0-9]+" type="text" th:field="*{period}" required/>
+        <br>
 
 
-        <p class="">
-            <input type="submit" class=" " name="calculate" value="DO IT"/>
-        </p>
-        <p>
-            <input type="submit" class="button" name="clear" value="Clear"/>
-        </p>
+        <input type="submit" class=" button-do-it" name="calculate" value="DO IT"/>
 
-        <p class="" th:text="'Your month payment: '"></p>
-        <p class="" th:text=" ${monthPayment}"></p>
+        <input type="submit" class="button-clear" name="clear" value="Clear"/>
 
-        <p class="" th:text="'Your total credit sum(with percents): '"></p>
-        <p class="" th:text=" ${creditSum}"></p>
 
-        <p class="" th:text="'Percents from your sum: '"></p>
-        <p class="" th:text=" ${percentsFromSum}"></p>
+        <p class="user-output" th:text="'Your month payment: '"></p>
+        <p class="user-output" th:text=" ${monthPayment}"></p>
 
-        <p class="" th:text="'Year percents for your credit: '"></p>
-        <p class="" th:text=" ${percents}"></p>
+        <p class="user-output" th:text="'Your total credit sum(with percents): '"></p>
+        <p class="user-output" th:text=" ${creditSum}"></p>
+
+        <p class="user-output" th:text="'Percents from your sum: '"></p>
+        <p class="user-output" th:text=" ${percentsFromSum}"></p>
+
+        <p class="user-output" th:text="'Year percents for your credit: '"></p>
+        <p class="user-output" th:text=" ${percents}"></p>
 
 
     </form>

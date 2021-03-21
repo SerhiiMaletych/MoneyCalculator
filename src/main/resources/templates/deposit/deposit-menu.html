@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <title>Deposit</title>
     <link rel="stylesheet" type="text/css" href="/css/deposit.css">
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+
 
 </head>
 <body>
-
+<div class="div-header">
+    <th:block th:include="/header"></th:block>
+</div>
 
 <div class="">
     <form  action="#" th:action="@{/deposit}" th:object="${deposit}" method="POST">
