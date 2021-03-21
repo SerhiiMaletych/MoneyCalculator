@@ -8,25 +8,21 @@ import money.calculator.MoneyCalculator.model.Sex;
 import money.calculator.MoneyCalculator.model.credit.Conviction;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
-import java.util.Optional;
-
 @Service
 public class CreditService {
 
     public double findMonthPayment(Credit credit) {
-        return findCreditSum(credit)/credit.getPeriod();
+        return findCreditSum(credit) / credit.getPeriod();
     }
 
     public double findCreditSum(Credit credit) {
         checkCredentials(credit);
         checkSalary(credit);
         findCreditResult(credit);
-        double totalSum = credit.getSum()+calculateAmountOfPercentPayment(credit);
+        double totalSum = credit.getSum() + calculateAmountOfPercentPayment(credit);
         if (credit.getResult() == Result.APPROVE) {
             return totalSum;
-        }
-        else return 0;
+        } else return 0;
     }
 
     public double calculateAmountOfPercentPayment(Credit credit) {
@@ -35,6 +31,7 @@ public class CreditService {
         return credit.getSum() * credit.getPercents() * credit.getPeriod() / 12;
 
     }
+
     public double findPercentsForCredit(Credit credit) {
 
         if (credit.getSum() / credit.getSalary() < 3 && credit.getPeriod() <= 6) {
@@ -51,17 +48,16 @@ public class CreditService {
             return credit.getPercents();
         } else if (credit.getSum() / credit.getSalary() < 12 && credit.getPeriod() <= 24)
             credit.setPercents(0.13);
-         return credit.getPercents();
+        return credit.getPercents();
 
     }
 
 
     public void findCreditResult(Credit credit) {
-            var division = credit.getSum() / credit.getSalary();
-         if (division < 10 && division!=0) {
-             credit.setResult(Result.APPROVE);
-        }
-        else credit.setResult(Result.REJECT);
+        var division = credit.getSum() / credit.getSalary();
+        if (division < 10 && division != 0) {
+            credit.setResult(Result.APPROVE);
+        } else credit.setResult(Result.REJECT);
     }
 
 
@@ -69,8 +65,7 @@ public class CreditService {
         if (credit.getName().isEmpty() || credit.getAge() < 18 || credit.getAge() > 90 ||
                 credit.getSalary() < 1000 || credit.getEmployed() == Employed.NO) {
             credit.setResult(Result.REJECT);
-        }
-        else credit.setResult(Result.APPROVE);
+        } else credit.setResult(Result.APPROVE);
     }
 
     public void checkConviction(Credit credit) {
@@ -78,12 +73,12 @@ public class CreditService {
             credit.setPercents(credit.getPercents() + 0.01);
         }
     }
+
     public void checkSalary(Credit credit) {
         if (credit.getSalary() < 3000) {
             credit.setResult(Result.REJECT);
         } else credit.setResult(Result.APPROVE);
     }
-
 
 
     public Credit clear(Credit credit) {
