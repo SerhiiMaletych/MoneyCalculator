@@ -1,88 +1,87 @@
 <!DOCTYPE html>
-    <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta charset="UTF-8">
-        <title>Car Insurance</title>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Insurance</title>
 
-        <link rel="stylesheet" type="text/css" href="/css/insurance.css">
-        <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/css/insurance.css">
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
 
-    </head>
-    <body>
-    <div class="div-header">
-        <th:block th:include="/header"></th:block>
-    </div>
-
-
-    <div class="">
-        <form action="#" th:action="@{/car}" th:object="${car}" method="POST">
-            <h2 class="">Please fill all the fields below:</h2>
+</head>
+<body>
+<div class="div-header">
+    <th:block th:include="/header"></th:block>
+</div>
 
 
-            <label>Name</label>
-            <input class="" type="text" th:field="*{name}" required/>
-            <label>Age</label>
-            <input class="" type="text" pattern="[0-9]+" th:field="*{age}" required/>
-            <label>Car Engine</label>
-            <input class="" type="text" th:field="*{carEngine}" required/>
-            <label>Year of production</label>
-            <input class="" type="text" pattern="[0-9]+" th:field="*{yearOfProduction}" required/>
-            <label>Driver's experience</label>
-            <input class="" type="text" pattern="[0-9]+" th:field="*{driverExperience}" required/>
-            </br>
+<div class="">
+    <form action="#" th:action="@{/car}" th:object="${car}" method="POST">
+        <h2 class="">Please fill all the fields below:</h2>
 
-            <label> Car model</label>
-            <select th:field="*{carModel}" class="">
-                <option th:value="'NONE'" th:text="NONE"></option>
-                <option th:value="'AUDI'" th:text="AUDI"></option>
-                <option th:value="'MERCEDES'" th:text="MERCEDES"></option>
-                <option th:value="'BMW'" th:text="BMW"></option>
-                <option th:value="'FERRARI'" th:text="FERRARI"></option>
-                <option th:value="'PORSHE'" th:text="PORSHE"></option>
-                <option th:value="'TESLA'" th:text="TESLA"></option>
-                <option th:value="'FIAT'" th:text="FIAT"></option>
-                <option th:value="'DAEWOO'" th:text="DAEWOO"></option>
-                <option th:value="'SUBARU'" th:text="SUBARU"></option>
-                <option th:value="'SUZUKI'" th:text="SUZUKI"></option>
-                <option th:value="'FORD'" th:text="FORD"></option>
-                <option th:value="'MITSUBISHI'" th:text="MITSUBISHI"></option>
-                <option th:value="'KIA'" th:text="KIA"></option>
-                <option th:value="'MAZDA'" th:text="MAZDA"></option>
-                <option th:value="'NISSAN'" th:text="NISSAN"></option>
-                <option th:value="'OPEL'" th:text="OPEL"></option>
-                <option th:value="'RENAULT'" th:text="RENAULT"></option>
-                <option th:value="'TOYOTA'" th:text="TOYOTA"></option>
-                <option th:value="'VOLKSWAGEN'" th:text="VOLKSWAGEN"></option>
-                <option th:value="'VOLVO'" th:text="VOLVO"></option>
-                <option th:value="'ZAZ_ZAPOROZHEC'" th:text="ZAZ_ZAPOROZHEC"></option>
-                <option th:value="'CHEVROLET'" th:text="CHEVROLET"></option>
-                <option th:value="'HYUNDAI'" th:text="HYUNDAI"></option>
-                <option th:value="'DODGE'" th:text="DODGE"></option>
 
-            </select> <br>
+        <label>Name</label>
+        <input class="user-input" type="text" th:field="*{name}" required/>
+        <label>Age</label>
+        <input class="user-input" type="text" pattern="[0-9]+" th:field="*{age}" required/>
+        <label>Car Engine</label>
+        <input class="user-input" type="text" th:field="*{carEngine}" required/>
+        <label>Year of production</label>
+        <input class="user-input" type="text" pattern="[0-9]+" th:field="*{yearOfProduction}" required/>
+        <label>Driver's experience</label>
+        <input class="user-input" type="text" pattern="[0-9]+" th:field="*{driverExperience}" required/>
+        </br>
 
-            <label>Is your car a taxi?</label>
-            <select th:field="*{isTaxi}" class="">
+        <label> Car model</label>
+        <select th:field="*{carModel}" class="user-input">
+            <option th:value="'NONE'" th:text="NONE"></option>
+            <option th:value="'AUDI'" th:text="AUDI"></option>
+            <option th:value="'MERCEDES'" th:text="MERCEDES"></option>
+            <option th:value="'BMW'" th:text="BMW"></option>
+            <option th:value="'FERRARI'" th:text="FERRARI"></option>
+            <option th:value="'PORSHE'" th:text="PORSHE"></option>
+            <option th:value="'TESLA'" th:text="TESLA"></option>
+            <option th:value="'FIAT'" th:text="FIAT"></option>
+            <option th:value="'DAEWOO'" th:text="DAEWOO"></option>
+            <option th:value="'SUBARU'" th:text="SUBARU"></option>
+            <option th:value="'SUZUKI'" th:text="SUZUKI"></option>
+            <option th:value="'FORD'" th:text="FORD"></option>
+            <option th:value="'MITSUBISHI'" th:text="MITSUBISHI"></option>
+            <option th:value="'KIA'" th:text="KIA"></option>
+            <option th:value="'MAZDA'" th:text="MAZDA"></option>
+            <option th:value="'NISSAN'" th:text="NISSAN"></option>
+            <option th:value="'OPEL'" th:text="OPEL"></option>
+            <option th:value="'RENAULT'" th:text="RENAULT"></option>
+            <option th:value="'TOYOTA'" th:text="TOYOTA"></option>
+            <option th:value="'VOLKSWAGEN'" th:text="VOLKSWAGEN"></option>
+            <option th:value="'VOLVO'" th:text="VOLVO"></option>
+            <option th:value="'ZAZ_ZAPOROZHEC'" th:text="ZAZ_ZAPOROZHEC"></option>
+            <option th:value="'CHEVROLET'" th:text="CHEVROLET"></option>
+            <option th:value="'HYUNDAI'" th:text="HYUNDAI"></option>
+            <option th:value="'DODGE'" th:text="DODGE"></option>
+
+        </select> <br>
+
+        <label>Is your car a taxi?</label>
+        <select th:field="*{isTaxi}" class="user-input">
             <option th:value="'NO'" th:text="NO"></option>
             <option th:value="'YES'" th:text="YES"></option>
-            </select>
-            <br>
-            <p class="">
-                <input type="submit" class="" name="calculate" value="CALCULATE"/>
-            </p>
-            <p>
-                <input type="submit" class="button" name="clear" value="Clear"/>
-            </p>
+        </select>
+        <br>
 
-            <p class="" th:text="'Total result: '"></p>
-            <p class="" th:text=" ${result}"></p>
+        <input type="submit" class="button-do-it" name="calculate" value="DO IT"/>
+
+        <input type="submit" class="button-clear" name="clear" value="Clear"/>
 
 
-        </form>
-    </div>
+        <p class="user-output" th:text="'Total result: '"></p>
+        <p class="user-output" th:text=" ${result}"></p>
 
-    </body>
-    </html>
+
+    </form>
+</div>
+
+</body>
+</html>
 </title>
 </head>
 <body>

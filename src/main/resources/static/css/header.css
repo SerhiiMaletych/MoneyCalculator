@@ -1,0 +1,17 @@
+.buttons {
+    width: 19.6%;
+    height: 30px;
+    border: 1px solid lightgreen;
+
+
+}
+.buttons:hover {
+    background-color: lightgreen;
+
+}
+
+.div-header {
+    margin-top: 10px;
+    width: 100%;
+    height: 30px;
+}

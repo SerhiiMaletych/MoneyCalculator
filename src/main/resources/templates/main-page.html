@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Money Calculator</title>
+    <link rel="stylesheet" type="text/css" href="/css/main-page.css">
+
 </head>
 <body>
+<div class="div-header">
+    <th:block th:include="/header"></th:block>
+</div>
 
-    <table>
-        <h3 class=""> Hello and welcome! Choose what you are interested in:</h3>
-        <p> <a href="/deposit" ><input type="button" class="" value=" Put a deposit"/></a></p>
-        <p>  <a href="/credit" ><input type="button" class="" value="Take a credit"/></a></p>
-        <p> <a href="/car" ><input type="button" class="" value=" Car insurance"/></a></p>
-        <p> <a href="/house" ><input type="button" class="" value=" Home insurance(under development)"/></a></p>
-        <p> <a href="/life" ><input type="button" class="" value="Life insurance(under development)"/></a></p>
+<form>
+    <h2 class="top-text"> Hello and welcome! Choose what you are interested in:</h2>
+    <p><a href="/deposit"><input type="button" class="button" value=" Put a deposit"/></a></p>
+    <p><a href="/credit"><input type="button" class="button" value="Take a credit"/></a></p>
+    <p><a href="/car"><input type="button" class="button" value=" Car insurance"/></a></p>
+    <p><a href="/house"><input type="button" class="button" value=" Home insurance"/></a></p>
+    <p><a href="/life"><input type="button" class="button" value="Life insurance"/></a></p>
 
 
-    </table>
+</form>
 </body>
 </html>

@@ -14,29 +14,28 @@
 </div>
 
 <div class="">
-    <form  action="#" th:action="@{/deposit}" th:object="${deposit}" method="POST">
+    <form action="#" th:action="@{/deposit}" th:object="${deposit}" method="POST">
         <h2 class="">Please fill all the fields below:</h2>
 
         <label>Sum</label>
-        <input class=""  type="text" pattern= "[0-9]+" th:field="*{sum}" required/>
+        <input class="user-input" type="text" pattern="[0-9]+" th:field="*{sum}" required/>
+        <br>
         <label>Time in months</label>
-        <input class=""  type="text" pattern= "[0-9]+" th:field="*{period}" required/>
+        <input class="user-input" type="text" pattern="[0-9]+" th:field="*{period}" required/>
 
 
-        <p class="">
-            <input type="submit" class=" "  name="calculate" value="DO IT"/>
-        </p>
-        <p>
-        <input type="submit" class="button" name="clear" value="Clear"/>
-        </p>
-        <p class="" th:text="'Percents based on time of your deposit: '"></p>
-        <p  class="" th:text=" ${percentsBasedOnMonths}"></p>
+        <input type="submit" class="button-do-it" name="calculate" value="DO IT"/>
 
-        <p class="" th:text="'Percent money from your sum: '"></p>
-        <p  class="" th:text=" ${percentsFromSum}"></p>
+        <input type="submit" class="button-clear" name="clear" value="Clear"/>
 
-        <p class="" th:text="'Total result: '"></p>
-        <p  class="" th:text=" ${result}"></p>
+        <p class="user-output" th:text="'Percents based on time of your deposit: '"></p>
+        <p class="user-output" th:text=" ${percentsBasedOnMonths}"></p>
+
+        <p class="user-output" th:text="'Percent money from your sum: '"></p>
+        <p class="user-output" th:text=" ${percentsFromSum}"></p>
+
+        <p class="user-output" th:text="'Your deposit+percents: '"></p>
+        <p class="user-output" th:text=" ${result}"></p>
 
 
     </form>
