@@ -4,9 +4,13 @@ package money.calculator.MoneyCalculator.entity.insurance;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import money.calculator.MoneyCalculator.model.Married;
+import money.calculator.MoneyCalculator.model.Employed;
+import money.calculator.MoneyCalculator.model.Result;
 import money.calculator.MoneyCalculator.model.insurance.Job;
+import money.calculator.MoneyCalculator.model.insurance.ProSport;
+import money.calculator.MoneyCalculator.model.insurance.Sickness;
 
+import javax.management.relation.RelationSupport;
 import javax.persistence.Entity;
 
 @Data
@@ -21,21 +25,28 @@ public class Life {
     private int age;
     private int height;
     private int weight;
+    private Employed employed;
     private money.calculator.MoneyCalculator.model.insurance.Job Job;
-    private boolean isSick;
+    private Sickness sickness;
+    private boolean amateurSport;
+    private ProSport proSport;
     private int payment;
-    private int insurance;
+    private Result result;
 
-    public Life(String name, int age, int height, int weight,
+
+    public Life(String name, int age, int height, int weight, boolean employed,
                 money.calculator.MoneyCalculator.model.insurance.Job job,
-                boolean isSick, int payment, int insurance) {
+                Sickness sickness, boolean amateurSport, ProSport proSport, int payment, Result result) {
         this.name = name;
         this.age = age;
         this.height = height;
         this.weight = weight;
+        this.employed = employed;
         Job = job;
-        this.isSick = isSick;
+        this.sickness = sickness;
+        this.amateurSport = amateurSport;
+        this.proSport = proSport;
         this.payment = payment;
-        this.insurance = insurance;
+        this.result = result;
     }
 }
