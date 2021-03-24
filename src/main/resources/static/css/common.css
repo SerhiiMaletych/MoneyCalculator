@@ -1,8 +1,14 @@
 form {
-    margin-left:30%;
+    margin-left:15%;
     margin-top: 3%;
-    width: 30%;
-    clear: both;
+    width: 20%;
+    float: left;
+    clear: none;
+}
+.form-output{
+    margin-top: 10%;
+    margin-left: 5%;
+    width: 20%;
 }
 
 label{
