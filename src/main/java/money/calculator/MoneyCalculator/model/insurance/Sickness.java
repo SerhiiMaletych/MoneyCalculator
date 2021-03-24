@@ -1,5 +1,5 @@
 package money.calculator.MoneyCalculator.model.insurance;
 
 public enum Sickness {
-    NONE
+    NONE, HEADACHE, HEART, STROKE,TUBERCULOSIS, PULMONARY, CANCER, DIABETES, DEMENTIAS, DIARRHEAL, CIRRHOSIS
 }

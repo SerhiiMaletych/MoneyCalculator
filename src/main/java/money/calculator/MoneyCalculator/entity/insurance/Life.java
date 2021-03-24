@@ -34,7 +34,7 @@ public class Life {
     private Result result;
 
 
-    public Life(String name, int age, int height, int weight, boolean employed,
+    public Life(String name, int age, int height, int weight, Employed employed,
                 money.calculator.MoneyCalculator.model.insurance.Job job,
                 Sickness sickness, boolean amateurSport, ProSport proSport, int payment, Result result) {
         this.name = name;
