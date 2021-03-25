@@ -49,4 +49,19 @@ public class Life {
         this.payment = payment;
         this.result = result;
     }
+
+
+    public Life(String name, int age, int height, int weight, Employed employed,
+                money.calculator.MoneyCalculator.model.insurance.Job job, Sickness sickness,
+                boolean amateurSport, ProSport proSport) {
+        this.name = name;
+        this.age = age;
+        this.height = height;
+        this.weight = weight;
+        this.employed = employed;
+        Job = job;
+        this.sickness = sickness;
+        this.amateurSport = amateurSport;
+        this.proSport = proSport;
+    }
 }

@@ -98,7 +98,10 @@ public class LifeInsuranceService {
     }
 
     public double findAgeMultiplier(Life life) {
-        if (life.getAge() > 50 && life.getAge() < 60) {
+        if(life.getAge()==0 || life.getAge()<0) {
+            return ageMultiplier =0;
+        }
+        else if (life.getAge() > 50 && life.getAge() < 60) {
             return ageMultiplier = 1.1;
         } else if (life.getAge() > 60 && life.getAge() < 70) {
             return ageMultiplier = 1.2;
@@ -111,20 +114,24 @@ public class LifeInsuranceService {
 
     public double findBodyMultiplier(Life life) {
         double bodyVariable = life.getHeight() - life.getWeight();
-        if (bodyVariable > 80 && bodyVariable < 110) {
+        if( life.getHeight()==0 || life.getWeight()==0) {
+            return bodyMultiplier = 0;
+        }
+        else if (bodyVariable > 80 && bodyVariable < 110) {
             return bodyMultiplier = 1;
         } else if (bodyVariable > 70 && bodyVariable < 80) {
             return bodyMultiplier = 1.1;
         } else if (bodyVariable > 110 && bodyVariable < 120) {
             return bodyMultiplier = 1.1;
-
         } else if (bodyVariable > 60 && bodyVariable < 70) {
             return bodyMultiplier = 1.2;
         } else if (bodyVariable > 120 && bodyVariable < 130) {
             return bodyMultiplier = 1.3;
         } else if (bodyVariable < 60 || bodyVariable > 130) {
             return bodyMultiplier = 1.5;
-        } else return 0;
+        }
+
+        else return 0;
 
     }
 
