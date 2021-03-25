@@ -20,15 +20,19 @@ public class LifeInsuranceService {
 
     public double calculateLifeInsurancePayment(Life life) {
         double basePayment = 100;
+        checkCredentials(life);
         findBodyMultiplier(life);
         findAgeMultiplier(life);
         findAmateurSportMultiplier(life);
         findSicknessMultiplier(life);
         findJobMultiplier(life);
         findProSportMultiplier(life);
+        if(life.getResult()==Result.APPROVE) {
+
         return basePayment * bodyMultiplier * ageMultiplier * jobMultiplier * sicknessMultiplier *
                 amateurSportMultiplier * proSportMultiplier;
-
+        }
+        else return 0;
     }
 
     public double findProSportMultiplier(Life life) {

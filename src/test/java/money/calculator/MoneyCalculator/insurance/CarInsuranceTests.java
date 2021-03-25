@@ -25,28 +25,8 @@ public class CarInsuranceTests {
         Car car1 = new Car(CarModel.DAEWOO, 3, 2002, 5, Taxi.NO);
         Car car2 = new Car(CarModel.ZAZ_ZAPOROZHEC, 1.5, 1980, 20, Taxi.NO);
 
-        carInsuranceService.checkForTaxi(car);
-        carInsuranceService.calculateYearOfProductionMultiplier(car);
-        carInsuranceService.checkCredentials(car);
-        carInsuranceService.calculateCarEngineMultiplier(car);
-        carInsuranceService.calculateDriverExperienceMultiplier(car);
-        carInsuranceService.calculateCarModelMultiplier(car);
         assertEquals(carInsuranceService.calculateInsurancePayment(car), 524.16);
-
-        carInsuranceService.checkForTaxi(car1);
-        carInsuranceService.calculateYearOfProductionMultiplier(car1);
-        carInsuranceService.checkCredentials(car1);
-        carInsuranceService.calculateCarEngineMultiplier(car1);
-        carInsuranceService.calculateDriverExperienceMultiplier(car1);
-        carInsuranceService.calculateCarModelMultiplier(car1);
         assertEquals(carInsuranceService.calculateInsurancePayment(car1), 280.0);
-
-        carInsuranceService.checkForTaxi(car2);
-        carInsuranceService.calculateYearOfProductionMultiplier(car2);
-        carInsuranceService.checkCredentials(car2);
-        carInsuranceService.calculateCarEngineMultiplier(car2);
-        carInsuranceService.calculateDriverExperienceMultiplier(car2);
-        carInsuranceService.calculateCarModelMultiplier(car2);
         assertEquals(carInsuranceService.calculateInsurancePayment(car2), 560.0);
 
     }

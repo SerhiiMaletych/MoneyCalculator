@@ -20,7 +20,121 @@ public class LifeInsuranceTests {
     @Autowired
     LifeInsuranceService lifeService;
 
+    @Test
+    public void testTotalCalculationOfLifeInsurance() {
+        Life life = new Life("Kira", 49, 165, 53, Employed.YES,
+                Job.HAIRDRESSER, Sickness.NONE, true, ProSport.NONE);
+        Life life1 = new Life("Kira", 43, 180, 120, Employed.YES,
+                Job.FACTORY_WORKER, Sickness.HEADACHE, true, ProSport.NONE);
+        Life life2 = new Life("Kira", 19, 160, 44, Employed.YES,
+                Job.FIREFIGHTER, Sickness.NONE, true, ProSport.ARCHERY);
+        Life life3 = new Life("Kira", 26, 10, 53, Employed.YES,
+                Job.HAIRDRESSER, Sickness.NONE, true, ProSport.NONE);
+        Life life4 = new Life("", 20, 165, 53, Employed.YES,
+                Job.HAIRDRESSER, Sickness.NONE, true, ProSport.NONE);
 
+        assertEquals(lifeService.calculateLifeInsurancePayment(life), 132.0);
+        assertEquals(lifeService.calculateLifeInsurancePayment(life1), 188.76000000000005);
+        assertEquals(lifeService.calculateLifeInsurancePayment(life2), 237.60000000000002);
+        assertEquals(lifeService.calculateLifeInsurancePayment(life3), 0);
+        assertEquals(lifeService.calculateLifeInsurancePayment(life4), 0);
+
+
+    }
+    @Test
+    public void testProfessionalSportMultipliers() {
+        Life life = new Life("Lucy", 20, 165, 53, Employed.YES,
+                Job.HAIRDRESSER, Sickness.NONE, true, ProSport.NONE);
+        Life life1 = new Life("Lucy", 20, 165, 53, Employed.YES,
+                Job.HAIRDRESSER, Sickness.NONE, true, ProSport.ATHLETICS);
+        Life life2 = new Life("Lucy", 20, 165, 53, Employed.YES,
+                Job.HAIRDRESSER, Sickness.NONE, true, ProSport.RUNNING);
+        Life life3 = new Life("Lucy", 20, 165, 53, Employed.YES,
+                Job.HAIRDRESSER, Sickness.NONE, true, ProSport.DIVING);
+        Life life4 = new Life("Lucy", 20, 165, 53, Employed.YES,
+                Job.HAIRDRESSER, Sickness.NONE, true, ProSport.GYMNASTICS);
+        Life life5 = new Life("Lucy", 20, 165, 53, Employed.YES,
+                Job.HAIRDRESSER, Sickness.NONE, true, ProSport.TENNIS);
+        Life life6 = new Life("Lucy", 20, 165, 53, Employed.YES,
+                Job.HAIRDRESSER, Sickness.NONE, true, ProSport.BOXING);
+        Life life7 = new Life("Lucy", 20, 165, 53, Employed.YES,
+                Job.HAIRDRESSER, Sickness.NONE, true, ProSport.POWERLIFTING);
+        Life life8 = new Life("Lucy", 20, 165, 53, Employed.YES,
+                Job.HAIRDRESSER, Sickness.NONE, true, ProSport.FENCING);
+        Life life9 = new Life("Lucy", 20, 165, 53, Employed.YES,
+                Job.HAIRDRESSER, Sickness.NONE, true, ProSport.CROSSFIT);
+        assertEquals(lifeService.findProSportMultiplier(life),1);
+        assertEquals(lifeService.findProSportMultiplier(life1),1.2);
+        assertEquals(lifeService.findProSportMultiplier(life2), 1.2);
+        assertEquals(lifeService.findProSportMultiplier(life3),1.4);
+        assertEquals(lifeService.findProSportMultiplier(life4),1.4);
+        assertEquals(lifeService.findProSportMultiplier(life5),1.4);
+        assertEquals(lifeService.findProSportMultiplier(life6),1.6);
+        assertEquals(lifeService.findProSportMultiplier(life7),1.6);
+        assertEquals(lifeService.findProSportMultiplier(life8),1.6);
+        assertEquals(lifeService.findProSportMultiplier(life9),1.7);
+
+    }
+    @Test
+    public void testAllJobMultipliers() {
+        Life life = new Life("Kevin", 22, 170, 72, Employed.YES,
+                Job.ARCHITECT, Sickness.NONE, true, ProSport.KARATE);
+        Life life1 = new Life("Kevin", 22, 170, 72, Employed.YES,
+                Job.LAWYER, Sickness.NONE, true, ProSport.KARATE);
+        Life life2 = new Life("Kevin", 22, 170, 72, Employed.YES,
+                Job.DOCTOR, Sickness.NONE, true, ProSport.KARATE);
+        Life life3 = new Life("Kevin", 22, 170, 72, Employed.YES,
+                Job.CLEANER, Sickness.NONE, true, ProSport.KARATE);
+        Life life4 = new Life("Kevin", 22, 170, 72, Employed.YES,
+                Job.BUTCHER, Sickness.NONE, true, ProSport.KARATE);
+        Life life5 = new Life("Kevin", 22, 170, 72, Employed.YES,
+                Job.MECHANIC, Sickness.NONE, true, ProSport.KARATE);
+        Life life6 = new Life("Kevin", 22, 170, 72, Employed.YES,
+                Job.BUILDER, Sickness.NONE, true, ProSport.KARATE);
+        Life life7 = new Life("Kevin", 22, 170, 72, Employed.YES,
+                Job.ELECTRICIAN, Sickness.NONE, true, ProSport.KARATE);
+        Life life8 = new Life("Kevin", 22, 170, 72, Employed.YES,
+                Job.FIREFIGHTER, Sickness.NONE, true, ProSport.KARATE);
+        Life life9 = new Life("Kevin", 22, 170, 72, Employed.YES,
+                Job.POLITICIAN, Sickness.NONE, true, ProSport.KARATE);
+        assertEquals(lifeService.findJobMultiplier(life),1);
+        assertEquals(lifeService.findJobMultiplier(life1),1);
+        assertEquals(lifeService.findJobMultiplier(life2),1.2);
+        assertEquals(lifeService.findJobMultiplier(life3),1.2);
+        assertEquals(lifeService.findJobMultiplier(life4),1.3);
+        assertEquals(lifeService.findJobMultiplier(life5),1.3);
+        assertEquals(lifeService.findJobMultiplier(life6),1.4);
+        assertEquals(lifeService.findJobMultiplier(life7),1.4);
+        assertEquals(lifeService.findJobMultiplier(life8),1.5);
+        assertEquals(lifeService.findJobMultiplier(life9),1.7);
+    }
+    @Test
+    public void testAllSicknessesMultipliers() {
+        Life life = new Life("Jason", 30, 170, 73, Employed.YES,
+                Job.NONE, Sickness.NONE, true, ProSport.NONE);
+        Life life1 = new Life("Jason", 30, 170, 73, Employed.YES,
+                Job.NONE, Sickness.HEADACHE, true, ProSport.NONE);
+        Life life2 = new Life("Jason", 30, 170, 73, Employed.YES,
+                Job.NONE, Sickness.DIABETES, true, ProSport.NONE);
+        Life life3 = new Life("Jason", 30, 170, 73, Employed.YES,
+                Job.NONE, Sickness.PULMONARY, true, ProSport.NONE);
+        Life life4 = new Life("Jason", 30, 170, 73, Employed.YES,
+                Job.NONE, Sickness.STROKE, true, ProSport.NONE);
+        Life life5 = new Life("Jason", 30, 170, 73, Employed.YES,
+                Job.NONE, Sickness.CIRRHOSIS, true, ProSport.NONE);
+        Life life6 = new Life("Jason", 30, 170, 73, Employed.YES,
+                Job.NONE, Sickness.CANCER, true, ProSport.NONE);
+
+        assertEquals(lifeService.findSicknessMultiplier(life), 1);
+        assertEquals(lifeService.findSicknessMultiplier(life1), 1.1);
+        assertEquals(lifeService.findSicknessMultiplier(life2), 1.2);
+        assertEquals(lifeService.findSicknessMultiplier(life3), 1.3);
+        assertEquals(lifeService.findSicknessMultiplier(life4),1.4);
+        assertEquals(lifeService.findSicknessMultiplier(life5), 1.5);
+        assertEquals(lifeService.findSicknessMultiplier(life6), 2);
+
+
+    }
     @Test
     public void testAmateurSport() {
         Life life = new Life("Jason", 30, 170, 73, Employed.YES,
