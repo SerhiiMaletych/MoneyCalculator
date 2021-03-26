@@ -1,18 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Life Insurance</title>
 
     <link rel="stylesheet" type="text/css" href="/css/insurance.css">
     <link rel="stylesheet" type="text/css" href="/css/common.css">
-
 
 </head>
 <body>
 <div class="div-header">
     <th:block th:include="/header"></th:block>
 </div>
+
+
+<div class="">
+    <form action="#" th:action="@{/life}" th:object="${life}" method="POST">
+        <h2 class="">Please fill all the fields below:</h2>
+
+
+        <label>Name</label>
+        <input class="user-input" type="text" th:field="*{name}" required/>
+        <label>Age</label>
+        <input class="user-input" type="text" pattern="[0-9]+" th:field="*{age}" required/>
+        <label>Height</label>
+        <input class="user-input" type="text" pattern="[0-9]+" th:field="*{height}" required/>
+        <label>Weight</label>
+        <input class="user-input" type="text" pattern="[0-9]+" th:field="*{weight}" required/>
+        </br>
+
+        <label>Are you amateur sportsman?</label>
+        <select th:field="*{amateurSport}" class="user-input">
+            <option th:value="'NO'" th:text="NO"></option>
+            <option th:value="'YES'" th:text="YES"></option>
+        </select>
+        <br>
+
+        <label> Are you professional sportsmen? Choose what's yours:</label>
+        <select th:field="*{proSport}" class="user-input">
+            <option th:value="'NONE'" th:text="NONE"></option>
+            <option th:value="'ATHLETICS'" th:text="ATHLETICS"></option>
+            <option th:value="'ARCHERY'" th:text="ARCHERY"></option>
+            <option th:value="'BADMINTON'" th:text="BADMINTON"></option>
+            <option th:value="'BASKETBALL'" th:text="BASKETBALL"></option>
+            <option th:value="'BOXING'" th:text="BOXING"></option>
+            <option th:value="'CHESS'" th:text="CHESS"></option>
+            <option th:value="'DIVING'" th:text="DIVING"></option>
+            <option th:value="'HOCKEY'" th:text="HOCKEY"></option>
+            <option th:value="'GOLF'" th:text="GOLF"></option>
+            <option th:value="'FENCING'" th:text="FENCING"></option>
+            <option th:value="'FOOTBALL'" th:text="FOOTBALL"></option>
+            <option th:value="'GYMNASTICS'" th:text="GYMNASTICS"></option>
+            <option th:value="'KARATE'" th:text="KARATE"></option>
+            <option th:value="'RUNNING'" th:text="RUNNING"></option>
+            <option th:value="'RUGBY'" th:text="RUGBY"></option>
+            <option th:value="'SKIING'" th:text="SKIING"></option>
+            <option th:value="'TENNIS'" th:text="TENNIS"></option>
+            <option th:value="'TRIATHLON'" th:text="TRIATHLON"></option>
+            <option th:value="'POWERLIFTING'" th:text="POWERLIFTING"></option>
+            <option th:value="'CROSSFIT'" th:text="CROSSFIT"></option>
+            <option th:value="'WEIGHTLIFTING'" th:text="WEIGHTLIFTING"></option>
+
+        </select> <br>
+
+        <label> What's your job?</label>
+        <select th:field="*{job}" class="user-input">
+            <option th:value="'NONE'" th:text="NONE"></option>
+            <option th:value="'ACTOR'" th:text="ACTOR"></option>
+            <option th:value="'ARCHITECT'" th:text="ARCHITECT"></option>
+            <option th:value="'ACCOUNTANT'" th:text="ACCOUNTANT"></option>
+            <option th:value="'AUTHOR'" th:text="AUTHOR"></option>
+            <option th:value="'BAKER'" th:text="BAKER"></option>
+            <option th:value="'BUILDER'" th:text="BUILDER"></option>
+            <option th:value="'BUTCHER'" th:text="BUTCHER"></option>
+            <option th:value="'DOCTOR'" th:text="DOCTOR"></option>
+            <option th:value="'CLEANER'" th:text="CLEANER"></option>
+            <option th:value="'DRIVER'" th:text="DRIVER"></option>
+            <option th:value="'ELECTRICIAN'" th:text="ELECTRICIAN"></option>
+            <option th:value="'HAIRDRESSER'" th:text="HAIRDRESSER"></option>
+            <option th:value="'LAWYER'" th:text="LAWYER"></option>
+            <option th:value="'FARMER'" th:text="FARMER"></option>
+            <option th:value="'FIREFIGHTER'" th:text="FIREFIGHTER"></option>
+            <option th:value="'FACTORY_WORKER'" th:text="FACTORY_WORKER"></option>
+            <option th:value="'MECHANIC'" th:text="MECHANIC"></option>
+            <option th:value="'MODEL'" th:text="MODEL"></option>
+            <option th:value="'PILOT'" th:text="PILOT"></option>
+            <option th:value="'POLITICIAN'" th:text="POLITICIAN"></option>
+            <option th:value="'POLICEMAN'" th:text="POLICEMAN"></option>
+            <option th:value="'SOLDIER'" th:text="SOLDIER"></option>
+            <option th:value="'TEACHER'" th:text="TEACHER"></option>
+            <option th:value="'WAITER'" th:text="WAITER"></option>
+
+        </select> <br>
+
+        <label> Do you have any sickness?</label>
+        <select th:field="*{sickness}" class="user-input">
+            <option th:value="'NONE'" th:text="NONE"></option>
+            <option th:value="'HEADACHE'" th:text="HEADACHE"></option>
+            <option th:value="'HEART'" th:text="HEART"></option>
+            <option th:value="'STROKE'" th:text="STROKE"></option>
+            <option th:value="'TUBERCULOSIS'" th:text="TUBERCULOSIS"></option>
+            <option th:value="'PULMONARY'" th:text="PULMONARY"></option>
+            <option th:value="'CANCER'" th:text="CANCER"></option>
+            <option th:value="'DIABETES'" th:text="DIABETES"></option>
+            <option th:value="'DEMENTIAS'" th:text="DEMENTIAS"></option>
+            <option th:value="'DIARRHEAL'" th:text="DIARRHEAL"></option>
+            <option th:value="'CIRRHOSIS'" th:text="CIRRHOSIS"></option>
+
+        </select> <br>
+
+
+
+
+
+        <input type="submit" class="button-do-it" name="calculate" value="DO IT"/>
+
+        <input type="submit" class="button-clear" name="clear" value="Clear"/>
+    </form>
+    <form class="form-output">
+
+        <p class="user-output" th:text="'Total result: '"></p>
+        <p class="user-output" th:text=" ${result}"></p>
+
+
+    </form>
+</div>
+
+</body>
+</html>
+</title>
+</head>
+<body>
 
 </body>
 </html>

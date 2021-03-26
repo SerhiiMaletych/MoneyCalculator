@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import money.calculator.MoneyCalculator.model.Employed;
 import money.calculator.MoneyCalculator.model.Result;
+import money.calculator.MoneyCalculator.model.insurance.AmateurSport;
 import money.calculator.MoneyCalculator.model.insurance.Job;
 import money.calculator.MoneyCalculator.model.insurance.ProSport;
 import money.calculator.MoneyCalculator.model.insurance.Sickness;
@@ -28,7 +29,7 @@ public class Life {
     private Employed employed;
     private money.calculator.MoneyCalculator.model.insurance.Job Job;
     private Sickness sickness;
-    private boolean amateurSport;
+    private AmateurSport amateurSport;
     private ProSport proSport;
     private int payment;
     private Result result;
@@ -36,13 +37,13 @@ public class Life {
 
     public Life(String name, int age, int height, int weight, Employed employed,
                 money.calculator.MoneyCalculator.model.insurance.Job job,
-                Sickness sickness, boolean amateurSport, ProSport proSport, int payment, Result result) {
+                Sickness sickness, AmateurSport amateurSport, ProSport proSport, int payment, Result result) {
         this.name = name;
         this.age = age;
         this.height = height;
         this.weight = weight;
         this.employed = employed;
-        Job = job;
+        this.Job=job;
         this.sickness = sickness;
         this.amateurSport = amateurSport;
         this.proSport = proSport;
@@ -53,13 +54,13 @@ public class Life {
 
     public Life(String name, int age, int height, int weight, Employed employed,
                 money.calculator.MoneyCalculator.model.insurance.Job job, Sickness sickness,
-                boolean amateurSport, ProSport proSport) {
+                AmateurSport amateurSport, ProSport proSport) {
         this.name = name;
         this.age = age;
         this.height = height;
         this.weight = weight;
         this.employed = employed;
-        Job = job;
+        this.Job=job;
         this.sickness = sickness;
         this.amateurSport = amateurSport;
         this.proSport = proSport;

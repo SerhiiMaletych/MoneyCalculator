@@ -18,7 +18,7 @@ public class LifeInsuranceController {
         this.lifeInsuranceService = lifeInsuranceService;
     }
 
-    @RequestMapping(value = "life")
+    @RequestMapping(value = "/life")
     public String lifeInsuranceMenu(Model model) {
         model.addAttribute("life", life);
         return "insurance/life-insurance-menu";

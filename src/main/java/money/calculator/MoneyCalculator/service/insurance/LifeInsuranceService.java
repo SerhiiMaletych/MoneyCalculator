@@ -3,6 +3,7 @@ package money.calculator.MoneyCalculator.service.insurance;
 import money.calculator.MoneyCalculator.entity.insurance.Life;
 import money.calculator.MoneyCalculator.model.Employed;
 import money.calculator.MoneyCalculator.model.Result;
+import money.calculator.MoneyCalculator.model.insurance.AmateurSport;
 import money.calculator.MoneyCalculator.model.insurance.Job;
 import money.calculator.MoneyCalculator.model.insurance.ProSport;
 import money.calculator.MoneyCalculator.model.insurance.Sickness;
@@ -96,7 +97,7 @@ public class LifeInsuranceService {
     }
 
     public double findAmateurSportMultiplier(Life life) {
-        if (life.isAmateurSport()) {
+        if (life.getAmateurSport()== AmateurSport.YES) {
             return amateurSportMultiplier = 1.2;
         } else return amateurSportMultiplier = 1;
     }
@@ -157,7 +158,7 @@ public class LifeInsuranceService {
         life.setJob(Job.NONE);
         life.setProSport(ProSport.NONE);
         life.setSickness(Sickness.NONE);
-        life.setAmateurSport(false);
+        life.setAmateurSport(AmateurSport.NO);
         return life;
     }
 
