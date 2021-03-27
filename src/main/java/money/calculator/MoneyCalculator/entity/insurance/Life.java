@@ -7,11 +7,9 @@ import lombok.NoArgsConstructor;
 import money.calculator.MoneyCalculator.model.Employed;
 import money.calculator.MoneyCalculator.model.Result;
 import money.calculator.MoneyCalculator.model.insurance.AmateurSport;
-import money.calculator.MoneyCalculator.model.insurance.Job;
 import money.calculator.MoneyCalculator.model.insurance.ProSport;
 import money.calculator.MoneyCalculator.model.insurance.Sickness;
 
-import javax.management.relation.RelationSupport;
 import javax.persistence.Entity;
 
 @Data
@@ -43,7 +41,7 @@ public class Life {
         this.height = height;
         this.weight = weight;
         this.employed = employed;
-        this.Job=job;
+        this.Job = job;
         this.sickness = sickness;
         this.amateurSport = amateurSport;
         this.proSport = proSport;
@@ -60,7 +58,7 @@ public class Life {
         this.height = height;
         this.weight = weight;
         this.employed = employed;
-        this.Job=job;
+        this.Job = job;
         this.sickness = sickness;
         this.amateurSport = amateurSport;
         this.proSport = proSport;
