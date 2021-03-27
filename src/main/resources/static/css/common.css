@@ -26,17 +26,25 @@ label{
 
 .user-output{
     margin-left: 10%;
+    font-size: 20px;
+}
+.user-output-number{
+    color: green;
 }
 
 .button-do-it{
     background-color: red;
     width: 80px;
-    height: 30px;
-    margin-left: 20%;
+    height: 40px;
+    margin-left: 18%;
+    border-radius: 4px ;
 
 }
 .button-clear{
-    background-color: cadetblue;
+    background-color: lightblue;
     width: 80px;
-    height: 30px;
+    height: 40px;
+    margin-left: 2%;
+    border-radius: 4px ;
+
 }

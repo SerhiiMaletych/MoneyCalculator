@@ -16,7 +16,9 @@
 
 <div class="">
     <form action="#" th:action="@{/life}" th:object="${life}" method="POST">
-        <h2 class="">Please fill all the fields below:</h2>
+        <h2 class="">Please fill all the fields </h2>
+        <h2 class="">below for life insurance:</h2>
+
 
 
         <label>Name</label>
@@ -36,7 +38,7 @@
         </select>
         <br>
 
-        <label> Are you professional sportsmen? Choose what's yours:</label>
+        <label> Are you professional sportsmen? <br>Choose what's yours:</label>
         <select th:field="*{proSport}" class="user-input">
             <option th:value="'NONE'" th:text="NONE"></option>
             <option th:value="'ATHLETICS'" th:text="ATHLETICS"></option>
@@ -120,7 +122,7 @@
     <form class="form-output">
 
         <p class="user-output" th:text="'Total result: '"></p>
-        <p class="user-output" th:text=" ${result}"></p>
+        <p class="user-output user-output-number" th:text=" ${result}"></p>
 
 
     </form>

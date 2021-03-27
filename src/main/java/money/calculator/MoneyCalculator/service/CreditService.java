@@ -36,19 +36,19 @@ public class CreditService {
 
         if (credit.getSum() / credit.getSalary() < 3 && credit.getPeriod() <= 6) {
             credit.setPercents(0.09);
-            return credit.getPercents();
+            return credit.getPercents()*100;
         } else if (credit.getSum() / credit.getSalary() < 4 && credit.getPeriod() <= 7) {
             credit.setPercents(0.1);
-            return credit.getPercents();
+            return credit.getPercents()*100;
         } else if (credit.getSum() / credit.getSalary() < 5 && credit.getPeriod() <= 8) {
             credit.setPercents(0.11);
-            return credit.getPercents();
+            return credit.getPercents()*100;
         } else if (credit.getSum() / credit.getSalary() < 6 && credit.getPeriod() <= 9) {
             credit.setPercents(0.12);
-            return credit.getPercents();
+            return credit.getPercents()*100;
         } else if (credit.getSum() / credit.getSalary() < 12 && credit.getPeriod() <= 24)
             credit.setPercents(0.13);
-        return credit.getPercents();
+        return credit.getPercents()*100;
 
     }
 
