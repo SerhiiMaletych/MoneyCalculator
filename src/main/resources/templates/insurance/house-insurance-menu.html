@@ -1,18 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>House Insurance</title>
 
     <link rel="stylesheet" type="text/css" href="/css/insurance.css">
     <link rel="stylesheet" type="text/css" href="/css/common.css">
-
 
 </head>
 <body>
 <div class="div-header">
     <th:block th:include="/header"></th:block>
 </div>
+
+
+<div class="">
+    <form action="#" th:action="@{/house}" th:object="${house}" method="POST">
+        <h2 class="">Please fill all the fields </h2>
+        <h2 class="">below for house insurance:</h2>
+
+
+        <label>Name</label>
+        <input class="user-input" type="text" th:field="*{name}" required/>
+        <label>House price</label>
+        <input class="user-input" type="text" pattern="[0-9]+" th:field="*{housePrice}" required/>
+        <label>House area</label>
+        <input class="user-input" type="text" pattern="[0-9]+" th:field="*{houseArea}" required/>
+        <label>Year of construction</label>
+        <input class="user-input" type="text" pattern="[0-9]+" th:field="*{yearOfConstruction}" required/>
+        </br>
+
+
+        <input type="submit" class="button-do-it" name="calculate" value="DO IT"/>
+
+        <input type="submit" class="button-clear" name="clear" value="Clear"/>
+    </form>
+    <form class="form-output">
+
+        <p class="user-output" th:text="' Annual payment: '"></p>
+        <p class="user-output user-output-number" th:text=" ${result}"></p>
+
+
+    </form>
+</div>
+
+</body>
+</html>
+</title>
+</head>
+<body>
 
 </body>
 </html>
