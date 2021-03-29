@@ -32,4 +32,11 @@ public class House {
         this.result = result;
         this.insurancePayment = insurancePayment;
     }
+
+    public House( String name, int housePrice, int houseArea, int yearOfConstruction) {
+        this.name = name;
+        this.housePrice = housePrice;
+        this.houseArea = houseArea;
+        this.yearOfConstruction = yearOfConstruction;
+    }
 }
