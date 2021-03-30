@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 public class DepositService {
 
 
-    public double calculateDeposit(Deposit deposit) {
-        return deposit.getSum() + calculatePercents(deposit);
+    public int calculateDeposit(Deposit deposit) {
+        return (int) (deposit.getSum() + calculatePercents(deposit));
 
     }
 

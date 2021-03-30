@@ -35,8 +35,8 @@ public class LifeInsuranceTests {
                 Job.HAIRDRESSER, Sickness.NONE, AmateurSport.YES, ProSport.NONE);
 
         assertEquals(lifeService.calculateLifeInsurancePayment(life), 132.0);
-        assertEquals(lifeService.calculateLifeInsurancePayment(life1), 188.76000000000005);
-        assertEquals(lifeService.calculateLifeInsurancePayment(life2), 237.60000000000002);
+        assertEquals(lifeService.calculateLifeInsurancePayment(life1), 188.0);
+        assertEquals(lifeService.calculateLifeInsurancePayment(life2), 237.0);
         assertEquals(lifeService.calculateLifeInsurancePayment(life3), 0);
         assertEquals(lifeService.calculateLifeInsurancePayment(life4), 0);
 

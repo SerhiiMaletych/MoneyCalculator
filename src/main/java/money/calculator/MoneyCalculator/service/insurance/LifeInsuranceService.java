@@ -19,7 +19,7 @@ public class LifeInsuranceService {
     private double proSportMultiplier;
 
 
-    public double calculateLifeInsurancePayment(Life life) {
+    public int calculateLifeInsurancePayment(Life life) {
         double basePayment = 100;
         checkCredentials(life);
         findBodyMultiplier(life);
@@ -30,8 +30,8 @@ public class LifeInsuranceService {
         findProSportMultiplier(life);
         if(life.getResult()==Result.APPROVE) {
 
-        return basePayment * bodyMultiplier * ageMultiplier * jobMultiplier * sicknessMultiplier *
-                amateurSportMultiplier * proSportMultiplier;
+        return (int) (basePayment * bodyMultiplier * ageMultiplier * jobMultiplier * sicknessMultiplier *
+                        amateurSportMultiplier * proSportMultiplier);
         }
         else return 0;
     }

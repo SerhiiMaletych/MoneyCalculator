@@ -66,7 +66,7 @@ public class DepositTests {
         deposit.setSum(1000);
         deposit.setPercents(0.05);
         deposit.setPeriod(2);
-        assertEquals(1008.3333333333334, depositService.calculateDeposit(deposit));
+        assertEquals(1008.0, depositService.calculateDeposit(deposit));
     }
 
     @Test

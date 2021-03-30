@@ -11,17 +11,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class CreditService {
 
-    public double findMonthPayment(Credit credit) {
+    public int findMonthPayment(Credit credit) {
         return findCreditSum(credit) / credit.getPeriod();
     }
 
-    public double findCreditSum(Credit credit) {
+    public int findCreditSum(Credit credit) {
         checkCredentials(credit);
         checkSalary(credit);
         findCreditResult(credit);
         double totalSum = credit.getSum() + calculateAmountOfPercentPayment(credit);
         if (credit.getResult() == Result.APPROVE) {
-            return totalSum;
+            return (int) totalSum;
         } else return 0;
     }
 

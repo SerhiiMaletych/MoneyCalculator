@@ -25,7 +25,7 @@ public class CarInsuranceTests {
         Car car1 = new Car(CarModel.DAEWOO, 3, 2002, 5, Taxi.NO);
         Car car2 = new Car(CarModel.ZAZ_ZAPOROZHEC, 1.5, 1980, 20, Taxi.NO);
 
-        assertEquals(carInsuranceService.calculateInsurancePayment(car), 524.16);
+        assertEquals(carInsuranceService.calculateInsurancePayment(car), 524.0);
         assertEquals(carInsuranceService.calculateInsurancePayment(car1), 280.0);
         assertEquals(carInsuranceService.calculateInsurancePayment(car2), 560.0);
 

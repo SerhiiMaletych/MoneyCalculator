@@ -25,15 +25,15 @@ public class CarInsuranceService {
     }
 
 
-    public double calculateInsurancePayment(Car car) {
+    public int calculateInsurancePayment(Car car) {
         calculateCarModelMultiplier(car);
         calculateDriverExperienceMultiplier(car);
         calculateCarEngineMultiplier(car);
         calculateYearOfProductionMultiplier(car);
         checkForTaxi(car);
-        double basePayment = 100;
-        return basePayment * driverExperienceMultiplier * carModelMultiplier * carEngineMultiplier *
-                yearOfProductionMultiplier*taxiMultiplier;
+        int basePayment = 100;
+        return (int) (basePayment * driverExperienceMultiplier * carModelMultiplier * carEngineMultiplier *
+                        yearOfProductionMultiplier*taxiMultiplier);
 
     }
 

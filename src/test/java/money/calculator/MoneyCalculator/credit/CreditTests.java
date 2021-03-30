@@ -29,8 +29,8 @@ public class CreditTests {
                 15000, 7000, 8);
         Credit credit2 = new Credit("Julia", Sex.FEMALE, Employed.NO, Conviction.NO, Married.YES, 60,
                 10000, 1, 6);
-        assertEquals(creditService.findMonthPayment(credit), 2233.333333333333);
-        assertEquals(creditService.findMonthPayment(credit1), 2012.5);
+        assertEquals(creditService.findMonthPayment(credit), 2233.0);
+        assertEquals(creditService.findMonthPayment(credit1), 2012.0);
         assertEquals(creditService.findMonthPayment(credit2), 0);
 
     }
@@ -43,7 +43,7 @@ public class CreditTests {
                 15000, 7000, 8);
         Credit credit2 = new Credit("Julia", Sex.FEMALE, Employed.NO, Conviction.NO, Married.YES, 60,
                 10000, 1, 6);
-        assertEquals(creditService.findCreditSum(credit), 22333.333333333332);
+        assertEquals(creditService.findCreditSum(credit), 22333.0);
         assertEquals(creditService.findCreditSum(credit1), 16100.0);
         assertEquals(creditService.findCreditSum(credit2), 0);
 

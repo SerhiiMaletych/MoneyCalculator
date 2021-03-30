@@ -70,19 +70,19 @@ public class HouseInsuranceService {
 
 
     public double findHousePriceMultiplier(House house) {
-        if (house.getHousePrice() < 20000) {
+        if (house.getHousePrice()>0 && house.getHousePrice() < 20000) {
             return houseAreaMultiplier = 1;
-        } else if (house.getHousePrice() < 40000) {
+        } else if (house.getHousePrice()>0 && house.getHousePrice() < 40000) {
             return housePriceMultiplier = 1.1;
-        } else if (house.getHousePrice() < 60000) {
+        } else if (house.getHousePrice()>0 && house.getHousePrice() < 60000) {
             return housePriceMultiplier = 1.2;
-        } else if (house.getHousePrice() < 150000) {
+        } else if (house.getHousePrice()>0 && house.getHousePrice() < 150000) {
             return housePriceMultiplier = 2;
-        } else if (house.getHousePrice() < 500000) {
+        } else if (house.getHousePrice()>0 && house.getHousePrice() < 500000) {
             return housePriceMultiplier = 3;
-        } else if (house.getHousePrice() < 1000000) {
+        } else if (house.getHousePrice()>0 && house.getHousePrice() < 1000000) {
             return housePriceMultiplier = 5;
-        } else if (house.getHousePrice() > 1000001) {
+        } else if (house.getHousePrice()>0 && house.getHousePrice() > 1000001) {
             return housePriceMultiplier = 10;
         } else return 0;
     }
