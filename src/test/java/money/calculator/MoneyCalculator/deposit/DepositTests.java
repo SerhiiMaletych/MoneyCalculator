@@ -49,9 +49,9 @@ public class DepositTests {
 
     @Test
     public void calculatePercents() {
-        Deposit deposit = new Deposit(1000,2,0.05);
-        Deposit deposit1 = new Deposit(5000,5,0.07);
-        Deposit deposit2 = new Deposit(7000,7,0.0085);
+        Deposit deposit = new Deposit(1000, 2, 0.05);
+        Deposit deposit1 = new Deposit(5000, 5, 0.07);
+        Deposit deposit2 = new Deposit(7000, 7, 0.0085);
 
         assertEquals(8.333333333333334, depositService.calculatePercents(deposit));
         assertEquals(145.83333333333334, depositService.calculatePercents(deposit1));
@@ -77,7 +77,7 @@ public class DepositTests {
         depositService.clear(deposit1);
         assertEquals(deposit.getSum(), 0);
         assertEquals(deposit1.getSum(), 0);
-        assertEquals(deposit.getPeriod(),0);
+        assertEquals(deposit.getPeriod(), 0);
         assertEquals(deposit1.getPeriod(), 0);
 
     }

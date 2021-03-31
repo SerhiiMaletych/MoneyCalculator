@@ -33,7 +33,7 @@ public class House {
         this.insurancePayment = insurancePayment;
     }
 
-    public House( String name, int housePrice, int houseArea, int yearOfConstruction) {
+    public House(String name, int housePrice, int houseArea, int yearOfConstruction) {
         this.name = name;
         this.housePrice = housePrice;
         this.houseArea = houseArea;

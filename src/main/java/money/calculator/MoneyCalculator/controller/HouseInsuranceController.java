@@ -1,6 +1,5 @@
 package money.calculator.MoneyCalculator.controller;
 
-import money.calculator.MoneyCalculator.entity.insurance.Car;
 import money.calculator.MoneyCalculator.entity.insurance.House;
 import money.calculator.MoneyCalculator.service.insurance.HouseInsuranceService;
 import org.springframework.stereotype.Controller;
@@ -15,6 +14,7 @@ public class HouseInsuranceController {
 
     private final HouseInsuranceService houseInsuranceService;
     House house = new House();
+
     public HouseInsuranceController(HouseInsuranceService houseInsuranceService) {
         this.houseInsuranceService = houseInsuranceService;
     }
@@ -27,14 +27,14 @@ public class HouseInsuranceController {
     }
 
     @PostMapping(value = "/house", params = "calculate")
-    public String houseInsuranceResult(@ModelAttribute("house")House house,  Model model) {
+    public String houseInsuranceResult(@ModelAttribute("house") House house, Model model) {
         model.addAttribute("result", houseInsuranceService.findInsurancePayment(house));
         return "insurance/house-insurance-menu";
     }
 
 
     @PostMapping(value = "/house", params = "clear")
-    public String clear(@ModelAttribute("house")House house,  Model model) {
+    public String clear(@ModelAttribute("house") House house, Model model) {
         model.addAttribute("house", houseInsuranceService.clear(house));
         model.addAttribute("result", 0);
         return "insurance/house-insurance-menu";

@@ -17,7 +17,7 @@ public class CarInsuranceService {
 
     public double doInsuranceResult(Car car) {
         checkCredentials(car);
-        if (car.getResult() == Result.APPROVE ) {
+        if (car.getResult() == Result.APPROVE) {
             return calculateInsurancePayment(car);
 
         }
@@ -33,7 +33,7 @@ public class CarInsuranceService {
         checkForTaxi(car);
         int basePayment = 100;
         return (int) (basePayment * driverExperienceMultiplier * carModelMultiplier * carEngineMultiplier *
-                        yearOfProductionMultiplier*taxiMultiplier);
+                yearOfProductionMultiplier * taxiMultiplier);
 
     }
 
@@ -112,10 +112,9 @@ public class CarInsuranceService {
         if (car.getCarEngine() <= 0 || car.getCarModel() == CarModel.NONE || car.getDriverExperience() < 0
                 || car.getYearOfProduction() < 1970 || car.getAge() < 16 || car.getName().isEmpty() ||
                 car.getName().isBlank()
-                ) {
+        ) {
             car.setResult(Result.REJECT);
-        }
-        else car.setResult(Result.APPROVE);
+        } else car.setResult(Result.APPROVE);
     }
 
     public Car clear(Car car) {

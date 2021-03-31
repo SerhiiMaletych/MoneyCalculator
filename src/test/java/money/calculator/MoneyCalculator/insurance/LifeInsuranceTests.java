@@ -42,6 +42,7 @@ public class LifeInsuranceTests {
 
 
     }
+
     @Test
     public void testProfessionalSportMultipliers() {
         Life life = new Life("Lucy", 20, 165, 53, Employed.YES,
@@ -64,18 +65,19 @@ public class LifeInsuranceTests {
                 Job.HAIRDRESSER, Sickness.NONE, AmateurSport.YES, ProSport.FENCING);
         Life life9 = new Life("Lucy", 20, 165, 53, Employed.YES,
                 Job.HAIRDRESSER, Sickness.NONE, AmateurSport.YES, ProSport.CROSSFIT);
-        assertEquals(lifeService.findProSportMultiplier(life),1);
-        assertEquals(lifeService.findProSportMultiplier(life1),1.2);
+        assertEquals(lifeService.findProSportMultiplier(life), 1);
+        assertEquals(lifeService.findProSportMultiplier(life1), 1.2);
         assertEquals(lifeService.findProSportMultiplier(life2), 1.2);
-        assertEquals(lifeService.findProSportMultiplier(life3),1.4);
-        assertEquals(lifeService.findProSportMultiplier(life4),1.4);
-        assertEquals(lifeService.findProSportMultiplier(life5),1.4);
-        assertEquals(lifeService.findProSportMultiplier(life6),1.6);
-        assertEquals(lifeService.findProSportMultiplier(life7),1.6);
-        assertEquals(lifeService.findProSportMultiplier(life8),1.6);
-        assertEquals(lifeService.findProSportMultiplier(life9),1.7);
+        assertEquals(lifeService.findProSportMultiplier(life3), 1.4);
+        assertEquals(lifeService.findProSportMultiplier(life4), 1.4);
+        assertEquals(lifeService.findProSportMultiplier(life5), 1.4);
+        assertEquals(lifeService.findProSportMultiplier(life6), 1.6);
+        assertEquals(lifeService.findProSportMultiplier(life7), 1.6);
+        assertEquals(lifeService.findProSportMultiplier(life8), 1.6);
+        assertEquals(lifeService.findProSportMultiplier(life9), 1.7);
 
     }
+
     @Test
     public void testAllJobMultipliers() {
         Life life = new Life("Kevin", 22, 170, 72, Employed.YES,
@@ -98,17 +100,18 @@ public class LifeInsuranceTests {
                 Job.FIREFIGHTER, Sickness.NONE, AmateurSport.YES, ProSport.KARATE);
         Life life9 = new Life("Kevin", 22, 170, 72, Employed.YES,
                 Job.POLITICIAN, Sickness.NONE, AmateurSport.YES, ProSport.KARATE);
-        assertEquals(lifeService.findJobMultiplier(life),1);
-        assertEquals(lifeService.findJobMultiplier(life1),1);
-        assertEquals(lifeService.findJobMultiplier(life2),1.2);
-        assertEquals(lifeService.findJobMultiplier(life3),1.2);
-        assertEquals(lifeService.findJobMultiplier(life4),1.3);
-        assertEquals(lifeService.findJobMultiplier(life5),1.3);
-        assertEquals(lifeService.findJobMultiplier(life6),1.4);
-        assertEquals(lifeService.findJobMultiplier(life7),1.4);
-        assertEquals(lifeService.findJobMultiplier(life8),1.5);
-        assertEquals(lifeService.findJobMultiplier(life9),1.7);
+        assertEquals(lifeService.findJobMultiplier(life), 1);
+        assertEquals(lifeService.findJobMultiplier(life1), 1);
+        assertEquals(lifeService.findJobMultiplier(life2), 1.2);
+        assertEquals(lifeService.findJobMultiplier(life3), 1.2);
+        assertEquals(lifeService.findJobMultiplier(life4), 1.3);
+        assertEquals(lifeService.findJobMultiplier(life5), 1.3);
+        assertEquals(lifeService.findJobMultiplier(life6), 1.4);
+        assertEquals(lifeService.findJobMultiplier(life7), 1.4);
+        assertEquals(lifeService.findJobMultiplier(life8), 1.5);
+        assertEquals(lifeService.findJobMultiplier(life9), 1.7);
     }
+
     @Test
     public void testAllSicknessesMultipliers() {
         Life life = new Life("Jason", 30, 170, 73, Employed.YES,
@@ -130,12 +133,13 @@ public class LifeInsuranceTests {
         assertEquals(lifeService.findSicknessMultiplier(life1), 1.1);
         assertEquals(lifeService.findSicknessMultiplier(life2), 1.2);
         assertEquals(lifeService.findSicknessMultiplier(life3), 1.3);
-        assertEquals(lifeService.findSicknessMultiplier(life4),1.4);
+        assertEquals(lifeService.findSicknessMultiplier(life4), 1.4);
         assertEquals(lifeService.findSicknessMultiplier(life5), 1.5);
         assertEquals(lifeService.findSicknessMultiplier(life6), 2);
 
 
     }
+
     @Test
     public void testAmateurSport() {
         Life life = new Life("Jason", 30, 170, 73, Employed.YES,
@@ -146,6 +150,7 @@ public class LifeInsuranceTests {
         assertEquals(lifeService.findAmateurSportMultiplier(life1), 1);
 
     }
+
     @Test
     public void testAgeMultiplicationMethod() {
         Life life = new Life("Kate", 0, 180, 70, Employed.YES,

@@ -23,15 +23,14 @@ public class HouseInsuranceTests {
         House house2 = new House("Vladimir", 480000, 330, 2016);
         House house3 = new House("", 111111, 80, 2005);
 
-        assertEquals(houseInsuranceService.findInsurancePayment(house),2470.0);
-        assertEquals(houseInsuranceService.findInsurancePayment(house1),2475.0000000000005);
-        assertEquals(houseInsuranceService.findInsurancePayment(house2),7500.0);
-        assertEquals(houseInsuranceService.findInsurancePayment(house3),0);
-
-
+        assertEquals(houseInsuranceService.findInsurancePayment(house), 2470.0);
+        assertEquals(houseInsuranceService.findInsurancePayment(house1), 2475.0000000000005);
+        assertEquals(houseInsuranceService.findInsurancePayment(house2), 7500.0);
+        assertEquals(houseInsuranceService.findInsurancePayment(house3), 0);
 
 
     }
+
     @Test
     public void testDifferentYearsOfConstructionMultipliers() {
         House house = new House("Serhii", 50000, 100, 1790);
@@ -53,7 +52,6 @@ public class HouseInsuranceTests {
         assertEquals(houseInsuranceService.findYearOfConstructionMultiplier(house6), 4);
         assertEquals(houseInsuranceService.findYearOfConstructionMultiplier(house7), 7);
         assertEquals(houseInsuranceService.findYearOfConstructionMultiplier(house8), 10);
-
 
 
     }
@@ -80,8 +78,8 @@ public class HouseInsuranceTests {
         assertEquals(houseInsuranceService.findHousePriceMultiplier(house7), 0);
 
 
-
     }
+
     @Test
     public void testDifferentHouseAreaMultipliers() {
         House house = new House("Bryan", 200000, 20, 2000);
@@ -102,6 +100,7 @@ public class HouseInsuranceTests {
 
 
     }
+
     @Test
     public void testCredentialsToBeOk() {
         House house = new House("Sergey", 100000, 100, 1990);
@@ -127,8 +126,8 @@ public class HouseInsuranceTests {
         House house = new House("Helen", 200000, 100, 2000);
         houseInsuranceService.clear(house);
         assertEquals(house.getName(), "");
-        assertEquals(house.getHousePrice(),0);
-        assertEquals(house.getHouseArea(),0);
-        assertEquals(house.getYearOfConstruction(),0);
+        assertEquals(house.getHousePrice(), 0);
+        assertEquals(house.getHouseArea(), 0);
+        assertEquals(house.getYearOfConstruction(), 0);
     }
 }
