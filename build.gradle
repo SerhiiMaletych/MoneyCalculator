@@ -27,6 +27,7 @@ dependencies {
     implementation group: 'net.minidev', name: 'json-smart', version: '2.3'
 	implementation group: 'net.minidev', name: 'asm', version: '1.0.2'
 
+    testCompile('org.mockito:mockito-junit-jupiter:2.23.0')
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation('org.springframework.boot:spring-boot-starter-test')
