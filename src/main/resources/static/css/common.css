@@ -1,5 +1,5 @@
 form {
-    margin-left: 15%;
+    margin-left: 23%;
     margin-top: 3%;
     width: 20%;
     float: left;
@@ -20,7 +20,7 @@ label {
     height: 25px;
     border: 1px solid black;
     margin: 2px;
-    width: 100%;
+    width: 95%;
     clear: both;
 
 }

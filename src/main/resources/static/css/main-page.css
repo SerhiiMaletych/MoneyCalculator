@@ -13,9 +13,32 @@ form {
 }
 
 .button:hover {
-    background-color: lightgreen;
+    background-color: lightcoral;
 }
 
 .top-text {
     text-align: center;
+}
+
+.button-back {
+    width: 100px;
+    height: 50px;
+    margin-left: -85%;
+    margin-top: 2px;
+    background-color: lightblue;
+}
+
+.button-back-credit {
+    width: 100px;
+    height: 50px;
+    margin-left: -60%;
+    margin-top: 2px;
+    background-color: lightblue;}
+
+.button-back:hover {
+    background-color: red;
+}
+
+.button-back-credit:hover {
+    background-color: red;
 }

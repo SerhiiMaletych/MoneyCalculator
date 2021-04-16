@@ -5,6 +5,7 @@
     <title>Deposit</title>
 
     <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/css/main-page.css">
 
 
 </head>
@@ -14,6 +15,8 @@
 </div>
 
 <div class="">
+    <a href="/"><input type="button" class=" button-back" value="Main page"/></a>
+
     <form action="#" th:action="@{/deposit}" th:object="${deposit}" method="POST">
         <h2 class="">Please fill all the fields</h2>
         <h2 class="">if you want to place a </h2>
