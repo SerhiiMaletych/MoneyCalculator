@@ -30,7 +30,7 @@ public class CreditTests {
         Credit credit2 = new Credit("Julia", Sex.FEMALE, Employed.NO, Conviction.NO, Married.YES, 60,
                 10000, 1, 6);
         assertEquals(creditService.findMonthPayment(credit), 2200.0);
-        assertEquals(creditService.findMonthPayment(credit1), 2012.0);
+        assertEquals(creditService.findMonthPayment(credit1), 2012.5);
         assertEquals(creditService.findMonthPayment(credit2), 0);
 
     }
@@ -54,10 +54,20 @@ public class CreditTests {
     public void checkCreditResultDependingOnSalary() {
         Credit credit = new Credit(100000, 11111);
         Credit credit1 = new Credit(50000, 3000);
+        Credit credit2 = new Credit(50000, 50000);
+        Credit credit3 = new Credit(50000, 60000);
+
+
         creditService.findCreditResult(credit);
         creditService.findCreditResult(credit1);
+        creditService.findCreditResult(credit2);
+        creditService.findCreditResult(credit3);
+
         assertEquals(credit.getResult(), Result.APPROVE);
         assertEquals(credit1.getResult(), Result.REJECT);
+        assertEquals(credit2.getResult(), Result.APPROVE);
+        assertEquals(credit3.getResult(), Result.APPROVE);
+
 
     }
 
