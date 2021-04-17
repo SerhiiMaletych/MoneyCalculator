@@ -19,10 +19,11 @@ public class CreditService {
         checkCredentials(credit);
         checkSalary(credit);
         findCreditResult(credit);
-        double totalSum = credit.getSum() + calculateAmountOfPercentPayment(credit);
-        if (credit.getResult() == Result.APPROVE) {
-            return (int) totalSum;
-        } else return 0;
+        if(credit.getResult()==Result.APPROVE){
+        return (int) (credit.getSum() + calculateAmountOfPercentPayment(credit));
+        }
+
+        return 0;
     }
 
     public double calculateAmountOfPercentPayment(Credit credit) {
@@ -62,6 +63,7 @@ public class CreditService {
 
 
     public void checkCredentials(Credit credit) {
+
         if (credit.getName().isEmpty() || credit.getAge() < 18 || credit.getAge() > 90 ||
                 credit.getSalary() < 1000 || credit.getEmployed() == Employed.NO) {
             credit.setResult(Result.REJECT);
@@ -70,7 +72,7 @@ public class CreditService {
 
     public void checkConviction(Credit credit) {
         if (credit.getConviction() == Conviction.NO) {
-            credit.setPercents(credit.getPercents() + 0.01);
+            credit.setPercents(credit.getPercents() - 0.01);
         }
     }
 

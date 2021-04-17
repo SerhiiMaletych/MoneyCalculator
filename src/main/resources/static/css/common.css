@@ -6,6 +6,10 @@ form {
     clear: none;
 }
 
+h2 {
+    margin-left: 15%;
+}
+
 .form-output {
     margin-top: 10%;
     margin-left: 5%;
