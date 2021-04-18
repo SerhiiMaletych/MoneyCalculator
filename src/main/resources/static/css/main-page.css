@@ -6,14 +6,32 @@ form {
 }
 
 .button {
-    height: 60px;
-    width: 200px;
-    margin-left: 27%;
+    height: 70px;
+    width: 220px;
+    margin-left: 25%;
     margin-right: 27%;
+    background-color: transparent;
+    border: 3px solid lightgreen;
+    transition: .3s;
+    font-size: 20px;
+    border-radius: 4px;
 }
 
 .button:hover {
-    background-color: lightcoral;
+    animation: pulse 1s infinite;
+    transition: .3s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    70% {
+        transform: scale(.9);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .top-text {
@@ -26,6 +44,7 @@ form {
     margin-left: -85%;
     margin-top: 2px;
     background-color: lightblue;
+    border-radius: 15px;
 }
 
 .button-back-credit {
@@ -33,10 +52,14 @@ form {
     height: 50px;
     margin-left: -60%;
     margin-top: 2px;
-    background-color: lightblue;}
+    background-color: lightblue;
+    border-radius: 15px;
+
+}
 
 .button-back:hover {
     background-color: red;
+
 }
 
 .button-back-credit:hover {

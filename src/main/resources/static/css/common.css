@@ -39,19 +39,40 @@ label {
 }
 
 .button-do-it {
-    background-color: red;
     width: 80px;
     height: 40px;
     margin-left: 18%;
-    border-radius: 4px;
-
+    background-color: transparent;
+    border: 3px solid forestgreen;
+    border-radius: 5px;
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+    color: forestgreen;
 }
 
+.button-do-it:hover {
+    box-shadow: 0 0 10px 0 forestgreen inset, 0 0 20px 2px forestgreen;
+    border: 3px solid forestgreen;
+}
+
+
 .button-clear {
-    background-color: lightblue;
     width: 80px;
     height: 40px;
     margin-left: 2%;
     border-radius: 4px;
+    background-color: #F4F200;
+    background-image: -moz-linear-gradient(top, #fff 0%, #F4F200 100%);
+    background-image: -webkit-linear-gradient(top, #fff 0%, #F4F200 100%);
+    background-image: linear-gradient(to bottom, #fff 0%, #F4F200 100%);
+    background-size: 300px;
+    background-repeat: no-repeat;
+    background-position: 0;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+}
 
+.button-clear:hover {
+    background-position: -200%;
+    transition: background 300ms ease-in-out;
 }
